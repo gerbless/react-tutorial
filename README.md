@@ -33,8 +33,8 @@
     1. [What are unit tests](#what-are-unit-tests)
     2. [Tape vs Mocha](#tape-vs-mocha)
     3. [My first unit test](#my-first-unit-test)
-19. [Functional programming](functional-programming)
-20. [Object Oriented Programming](object-oriented-programming)
+19. [Functional programming](functional-programming/readme.md)
+20. [Object Oriented Programming](object-oriented-programming/readme.md)
 
 
 ## ES2015 Syntax
