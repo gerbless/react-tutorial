@@ -34,7 +34,7 @@ If we search in wikipedia about functional programming we can find this
 With all this definition we can find some goals to achieve with this new approach:
 
 - **Idempotence**: Functions that receive the same input always returns the same output.
-- **Referencial transparency**: Functions do not alter any state outside their scope. This avoid any race conditions that in imperative programming is commonly found.
+- **Referential transparency**: Functions do not alter any state outside their scope. This avoid any race conditions that in imperative programming is commonly found.
 - **Composable**: As objects can be composable in Object Oriented Programming, a function in functional programming can be composed by several functions.
 - **Parallelizable**: One of the key features of functional programming is avoid to use assignation and avoid side-effects. With these ideas in mind, we can avoid to think how to deal with threads and share variables and dead-locks and all that stuff.
 
@@ -148,7 +148,7 @@ Array.prototype.forEach = function(callback){
 };
 ````
 
-**Note** this method and the rest of them are implemented in javascript, just for teaching purposes they are being re implemented.
+**Note** this method and the rest of them are implemented in Javascript, just for teaching purposes they are being re implemented.
 
 
 ## Map method
@@ -230,7 +230,7 @@ console.log(sum);//45
 
 This is really useful with other functionalities we will learn later.
 
-To view a possible implemetation of reduce function, you can see this
+To view a possible implementation of reduce function, you can see this
 
 ````javascript
 Array.prototype.reduce = function(reducer, initialValue){
@@ -325,7 +325,7 @@ console.log(myCounter.getCount());//returns 3
 console.log(myCounter.decrement());//returns 2
 ````
 
-What is happening here ? well, we have create a closure holds inner state hide from us. This is a really useful feature that javascript offer us.
+What is happening here ? well, we have create a closure holds inner state hide from us. This is a really useful feature that Javascript offer us.
 
 ## Higher order functions
 
@@ -367,7 +367,7 @@ function countdown(number){
 countdown(10);
 ````
 
-As you can see, sooner or later this script will halt because of **maximum call stack exceeded**. It is because javascript unlike pure functional programming languages it does not support **tail call optimization** and is based until ES6 in call stack optimization.
+As you can see, sooner or later this script will halt because of **maximum call stack exceeded**. It is because Javascript unlike pure functional programming languages it does not support **tail call optimization** and is based until ES6 in call stack optimization.
 
 Well, this definition does not help us, so as I said before, this functions can invoke itself until it does not. How to do that ? just use a conditional:
 
@@ -690,12 +690,12 @@ Now, we will convert a completely pointy imperative function to a point-free com
 ````javascript
 //users for demo purposes
 var users = [
-  { role:'admin', email: 'sreal@falabella.cl' },
-  { role:'dba', email: 'mprieto@falabella.cl' },
-  { role:'designer', email: 'avelasquez@falabella.cl' },
-  { role:'admin', email: 'skande@falabella.cl' },
-  { role:'developer', email: 'cedmolina@falabella.cl' },
-  { role:'pmo', email: 'jguerra@falabella.cl' }
+  { role:'admin', email: 'admin1@mailinator.com' },
+  { role:'dba', email: 'dba@mailinator.com' },
+  { role:'designer', email: 'designer@mailinator.com' },
+  { role:'admin', email: 'admin2@mailinator.com' },
+  { role:'developer', email: 'developer@mailinator.com' },
+  { role:'pmo', email: 'pmo@mailinator.com' }
 ];
 
 //imperative function
@@ -828,7 +828,7 @@ So my advice here is, whenever you can create a generic function, try to make it
 
 ## Functors
 
-We have seen how to abstract behaviour with pure functions. Now, how we deal with all the side-effects(asynchronous task, error handling, etc) in real world in functional programming ?.
+We have seen how to abstract behavior with pure functions. Now, how we deal with all the side-effects(asynchronous task, error handling, etc) in real world in functional programming ?.
 
 Let me introduce you Containers first we can get further.
 

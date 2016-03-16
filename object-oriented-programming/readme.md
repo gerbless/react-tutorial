@@ -71,7 +71,7 @@ This is better explained in the picture below:
 ![prototypal-inheritance][prototypal-inheritance-source]
 
 
-This is usually a way to represent class inheritance in javascript like the other languages do:
+This is usually a way to represent class inheritance in Javascript like the other languages do:
 
 ````javascript
 function Foo(who){
@@ -105,7 +105,7 @@ For this classical inheritance way to do things like other languages do, this di
 ![classical-diagram][classical-diagram-source]
 
 
-Now, lets forget all this ..... garbage found in misconceptions about how javascript objects should work. Let's try to refactor this mess with something more clean and tidy:
+Now, lets forget all this ..... garbage found in misconceptions about how Javascript objects should work. Let's try to refactor this mess with something more clean and tidy:
 
 ````javascript
 var Foo = {
@@ -134,7 +134,7 @@ b2.speak();// Hello, I am b2.
 
 ![prototypal-diagram][prototypal-diagram-source]
 
-That's a lot nicer, what do you think ?. I know, you are not accustomed to this way of do objects and inherit from them. So we will study the many ways you can do object inheritance and object creation in javascript.
+That's a lot nicer, what do you think ?. I know, you are not accustomed to this way of do objects and inherit from them. So we will study the many ways you can do object inheritance and object creation in Javascript.
 
 
 ## Object creation modes

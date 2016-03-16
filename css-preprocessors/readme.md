@@ -11,7 +11,7 @@ Now, we will discuss a new tool to help us creating CSS styles. These tools help
 
 Among these, there are three most popular it is worth to mention them:
 
-- **Less** It is the most popular right now, it is so similar to use plain CSS, and it can be used directly in browser with just 1 js file to pre process Less Styles.
+- **Less** It is the most popular right now, it is so similar to use plain CSS, and it can be used directly in browser with just 1 js file to pre-process Less Styles.
 - **Sass** It is the second most popular preprocessor, it is mainly used in Ruby and Rails community and it has a huge community working actively in it.
 - **Stylus** It is the less popular, but it is one of the most powerful. It is used with NodeJS and is the newest of them.
 

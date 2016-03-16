@@ -19,7 +19,7 @@ According to wikipedia, unit tests are this:
 
 With unit test we can achieve the next ideas
 
-- Test automatization
+- Test automation
 - Easier bug detection
 - Easier code refactoring
 

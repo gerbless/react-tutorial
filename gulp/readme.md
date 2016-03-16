@@ -12,7 +12,7 @@
 Everyone had done repetitive tasks during projects, some of these task had been:
 
 - compress JS files
-- preprocess CSS files
+- pre process CSS files
 - compress CSS files
 - compress image files
 - merge files in just 1 file
@@ -132,7 +132,7 @@ gulp.task('task-c', function(){
 gulp.task('default', ['task-a', 'task-b', 'task-c']);
 ````
 
-However, these tasks are being executed in parallel, so you must be careful if you do not want to have unexpected behaviours.
+However, these tasks are being executed in parallel, so you must be careful if you do not want to have unexpected behaviors.
 
 Then, to execute your default task, just run this
 

@@ -12,7 +12,7 @@
 
 ![flux-vs-mvc][flux-vs-mvc-source]
 
-To really understand what is the big deal with flux instead of just using MVC as always. Let's understand what MVC means in frontend side.
+To really understand what is the big deal with flux instead of just using MVC as always. Let's understand what MVC means in front-end side.
 
 
 ## MVC
@@ -20,13 +20,13 @@ To really understand what is the big deal with flux instead of just using MVC as
 MVC is a software pattern design that allow us to separate our systems/apps/programs into at least 3 layers that will be described right now
 
 - **Model** is the layer that represents data and business logic inside our software. This layer is commonly
-done in javascript taking a JSON object as a store or using an indexed db in browser side.
+done in Javascript taking a JSON object as a store or using an indexed db in browser side.
 - **View** is the layer that represents data to user in a meaningful way. Also, this layer is responsible to react to user interactions creating actions.
 - **Controller** this layer is responsible to bind view actions to make updates directly to our model in a secure way. Also, all the changes done in model layer can be abstracted in this layer to send this info to view layer.
 
-As you can see, this representation of MVC differs a little from original backend side version of MVC. This is because in frontend side, all these layers have a little blurry line between them. It is too common that this separation can be easily forgotten.
+As you can see, this representation of MVC differs a little from original back-end side version of MVC. This is because in front-end side, all these layers have a little blurry line between them. It is too common that this separation can be easily forgotten.
 
-So, for these cases in frontend we have alternatives to pure version of MVC, they are called MV* versions. In these versions, our MV* can be represented as MVC(model-view-controller), MVVM(model-view-viewmodel) and so on.
+So, for these cases in front-end we have alternatives to pure version of MVC, they are called MV* versions. In these versions, our MV* can be represented as MVC(model-view-controller), MVVM(model-view-viewmodel) and so on.
 
 Just to show you an example of this, we can see this picture to understand best
 
@@ -62,7 +62,7 @@ To understand what is this representation in a picture, let me show you this
 
 To make things as simple as possible, we will not use modules to keep components separated at all. Instead, we will use the module pattern to encapsulate our inner implementation from public interface.
 
-If you do not know about which software design patterns are commonly used in javascript, you can visit this link to learn about [JAVASCRIPT DESIGN PATTERNS][javascript-design-patterns-source]
+If you do not know about which software design patterns are commonly used in Javascript, you can visit this link to learn about [JAVASCRIPT DESIGN PATTERNS][javascript-design-patterns-source]
 
 Our very first step is import all the dependencies that we will need
 
@@ -98,7 +98,7 @@ const flux = (() => {
 })();
 ````
 
-Them, we code the action creators, responsibles of emit the action we want to trigger:
+Them, we code the action creators, responsible of emit the action we want to trigger:
 
 ````javascript
 
@@ -591,24 +591,15 @@ So, our example should look similar to this(regardless the pictures)
 
 However, the former example using the facebook implementation is somewhat redundant and you need code that can be omitted.
 
-In this same example we will continue using flux, but with another approach, we will use Redux library. Redux, alongside original facebook implementation, is the most popular library to implement flux and is widely adopted between javascript developers.
+In this same example we will continue using flux, but with another approach, we will use Redux library. Redux, alongside original facebook implementation, is the most popular library to implement flux and is widely adopted between Javascript developers.
 
 Redux besides follows three main principles:
 
 - Application state is stored in just 1 store.
-- The state is just readonly, to make changes in this state it should emit an action explicitly.
+- The state is just read-only, to make changes in this state it should emit an action explicitly.
 - Any state change inside our store, it must be represented by a completely new object.
 
-To install redux, we need to
-
-Redux, aparte de lo que profesa facebook, adicionalmente se basa en tres principios principales:
-
-El estado de la aplicación es almacenado en un objeto dentro de un solo store.
-
-Los estados son de solamente lectura, para realizar cambios sobre dicho estado se debe emitir una acción de manera explicita. Con esto se evitan las "race conditions"
-
-Cualquier cambio de estado del store, debe ser representado por un objeto completamente nuevo.
-Para instalar redux ingresaremos las siguientes lineas en nuestra terminal
+To install redux, we need to type in our console the following command
 
 ````shell
 $ npm install --save redux
@@ -657,7 +648,7 @@ The most important thing here is to notice in 'ADD_PRODUCTS' case occurs somethi
 We take the previous state(that is an array), we create a copy of this and then we add the new elements.
 As I said before, the main idea is not mutate the previous state, but to create a new one from the former one.
 
-So, we have our first reducir responsible of doing product catalog stuff. Now, we can create another reducer to handle our shopping cart basket.
+So, we have our first reducer responsible of doing product catalog stuff. Now, we can create another reducer to handle our shopping cart basket.
 
 ````javascript
 function shoppingCart(previousState = [], action){
@@ -696,8 +687,6 @@ store.subscribe(() => console.log('new state : ', store.getState()));
 ````
 
 Now, we will begin to create our React components like as we have done before.
-
-Ahora, comenzaremos a crear nuestros componentes React como ya lo hemos hecho anteriormente.
 
 Lets start with ProductImage component
 
