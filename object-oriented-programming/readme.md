@@ -261,7 +261,7 @@ var robot = {
 };
 
 var ninjaPirateZombieRobot = Object.assign({}, ninja, pirate, zombie, robot);
-console.log(ninjaPirateZombieRobot);
+console.log(ninjaPirateZombieRobot);//this object can act like all of these other objects.
 ````
 
 [inherited-a-mess]:https://davidwalsh.name/javascript-objects
