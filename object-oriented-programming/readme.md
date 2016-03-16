@@ -215,6 +215,9 @@ One good way to do object inheritance is via Object composition(like GoF recomme
 
 ````javascript
 
+//just for demo purpose, usually Object.assign is implemented in modern browsers
+//but if your browser does not support it, this is a naive implementation of object assign
+//to make things work
 Object.assign = Object.assign || function(target){
   var sources = [].slice.call(arguments, 1);
 
@@ -240,7 +243,7 @@ var pirate = {
   bottlesOfRum: 5,
   greeting: function(){
     console.log('hi i am a pirate, nice to meet you ' + this.laughType);
-  };
+  }
 };
 
 var zombie = {
