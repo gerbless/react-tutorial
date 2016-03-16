@@ -80,4 +80,6 @@ Please note that our file must have a SCSS extension. This is because this kind 
 
 Just with this little change creating a new task, we can now use SASS in our project.
 
+[back to previous page](../README.md)
+
 [sass-guide-source]:http://sass-lang.com/guide

@@ -174,7 +174,7 @@ For this test, this execution should be similar to this
 So, it should be our main priority create automatic tests to make our code healthier and if we need to do some changes in our code, the tests will tell us if we are creating a new bug or does not meet the previous requirements.
 
 
-[back to previous page](../README.md)
+[back to previous page](../README.md#unit-tests)
 
 [screen15]:https://dl.dropboxusercontent.com/u/18850435/tutorial/screen15.png
 [screen16]:https://dl.dropboxusercontent.com/u/18850435/tutorial/screen16.png

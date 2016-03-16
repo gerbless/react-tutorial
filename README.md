@@ -15,7 +15,7 @@
 1. [Browserify and Webpack](#browserify-and-webpack)
 1. [Gulp](gulp/readme.md)
 1. [CSS Preprocessors](css-preprocessors/readme.md)
-1. [Unit tests](unit-tests/readme.md)
+1. [Unit tests](#unit-tests)
 1. [Functional programming](functional-programming/readme.md)
 1. [Object Oriented Programming](object-oriented-programming/readme.md)
 
