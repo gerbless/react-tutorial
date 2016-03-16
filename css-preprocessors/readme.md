@@ -79,3 +79,5 @@ gulp.task('sass', function(){
 Please note that our file must have a SCSS extension. This is because this kind of file is recognized by SASS as a SASS file.
 
 Just with this little change creating a new task, we can now use SASS in our project.
+
+[sass-guide-source]:http://sass-lang.com/guide

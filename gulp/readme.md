@@ -363,5 +363,6 @@ gulp.task('webpack-build-prod', function(callback){
 
 So, we just have done both ways of doing gulp tasks with browserify and webpack. In my opinion, browserify is good enough for simple use cases. But if you want real power you should consider using webpack.
 
+[gulp-api-source]:https://github.com/gulpjs/gulp/blob/master/docs/API.md
 [screen10]:https://dl.dropboxusercontent.com/u/18850435/tutorial/screen10.png
 [screen11]:https://dl.dropboxusercontent.com/u/18850435/tutorial/screen11.png
