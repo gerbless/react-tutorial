@@ -1040,3 +1040,6 @@ console.log('person 2 country:', getCountry(person2));
 ````
 
 Notice our application now does not crash when we access undefined values. We let Maybe take care of that each time we try to apply a transform function in our **Maybe Monad**.
+
+
+[back to previous page](../README.md#functional-programming)

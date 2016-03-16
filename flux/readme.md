@@ -961,6 +961,7 @@ We are going to use the same CSS used in facebook flux. So, in this case the app
 
 ![screen][screen14]
 
+[back to previous page](../README.md#flux-vs-mvc)
 
 [flux-vs-mvc-source]:http://www.pro-tekconsulting.com/blog/wp-content/uploads/2015/07/FLUX-vs-MVC.jpg
 [wiki-mvc-source]:https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller

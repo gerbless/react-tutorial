@@ -80,6 +80,6 @@ Please note that our file must have a SCSS extension. This is because this kind 
 
 Just with this little change creating a new task, we can now use SASS in our project.
 
-[back to previous page](../README.md)
+[back to previous page](../README.md#css-preprocessors)
 
 [sass-guide-source]:http://sass-lang.com/guide

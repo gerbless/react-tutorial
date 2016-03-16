@@ -11,13 +11,13 @@
 1. [Event handling](#event-handling)
 1. [Modules](#modules)
 1. [Real example](#real-example)
-1. [Flux vs MVC](flux/readme.md)
+1. [Flux vs MVC](#flux-vs-mvc)
 1. [Browserify and Webpack](#browserify-and-webpack)
-1. [Gulp](gulp/readme.md)
-1. [CSS Preprocessors](css-preprocessors/readme.md)
+1. [Gulp](#gulp)
+1. [CSS Preprocessors](#css-preprocessors)
 1. [Unit tests](#unit-tests)
-1. [Functional programming](functional-programming/readme.md)
-1. [Object Oriented Programming](object-oriented-programming/readme.md)
+1. [Functional programming](#functional-programming)
+1. [Object Oriented Programming](#object-oriented-programming)
 
 
 ## ES2015 Syntax

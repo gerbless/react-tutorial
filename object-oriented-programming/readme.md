@@ -264,6 +264,9 @@ var ninjaPirateZombieRobot = Object.assign({}, ninja, pirate, zombie, robot);
 console.log(ninjaPirateZombieRobot);//this object can act like all of these other objects.
 ````
 
+[back to previous page](../README.md#object-oriented-programming)
+
+
 [inherited-a-mess]:https://davidwalsh.name/javascript-objects
 [classical-inheritance-source]:https://davidwalsh.name/demo/InheritanceArrows.png
 [prototypal-inheritance-source]:https://dl.dropboxusercontent.com/u/2474669/jsdiagrams/DelegationArrows.png
