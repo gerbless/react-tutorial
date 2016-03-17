@@ -366,5 +366,5 @@ So, we just have done both ways of doing gulp tasks with browserify and webpack.
 [back to previous page](../README.md#gulp)
 
 [gulp-api-source]:https://github.com/gulpjs/gulp/blob/master/docs/API.md
-[screen10]:https://dl.dropboxusercontent.com/u/18850435/tutorial/screen10.png
-[screen11]:https://dl.dropboxusercontent.com/u/18850435/tutorial/screen11.png
+[screen10]:../images/screen10.png
+[screen11]:../images/screen11.png

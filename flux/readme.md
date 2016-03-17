@@ -958,4 +958,4 @@ We are going to use the same CSS used in facebook flux. So, in this case the app
 [mvc-source-1]:https://cdn-images-1.medium.com/max/800/1*gSSDaoZsDB-dZGKqnVk1gQ.jpeg
 [flux-source]:https://facebook.github.io/flux/img/flux-simple-f8-diagram-explained-1300w.png
 [javascript-design-patterns-source]:https://addyosmani.com/resources/essentialjsdesignpatterns/book/
-[screen14]:https://dl.dropboxusercontent.com/u/18850435/tutorial/screen14.png
+[screen14]:../images/screen14.png
