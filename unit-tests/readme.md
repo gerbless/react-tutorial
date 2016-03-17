@@ -176,7 +176,8 @@ So, it should be our main priority create automatic tests to make our code healt
 
 [back to previous page](../README.md#unit-tests)
 
-[screen15]:https://dl.dropboxusercontent.com/u/18850435/tutorial/screen15.png
-[screen16]:https://dl.dropboxusercontent.com/u/18850435/tutorial/screen16.png
-[screen17]:https://dl.dropboxusercontent.com/u/18850435/tutorial/screen17.png
-[screen18]:https://dl.dropboxusercontent.com/u/18850435/tutorial/screen18.png
+
+[screen15]:../images/screen15.png
+[screen16]:../images/screen16.png
+[screen17]:../images/screen17.png
+[screen18]:../images/screen18.png
