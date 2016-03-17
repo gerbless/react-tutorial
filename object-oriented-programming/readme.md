@@ -36,11 +36,13 @@ All your objects should work as expected, but you do not have to know how
 it works in the background. All this functionality and inner working to make things happen
 must be hidden to outsiders.
 
+
 ### Inheritance
 
 What happens when you want to make to objects that have properties and behavior in common ? Do you have to duplicate code to achieve that ?. Oh no my friend, you can do an inheritance. Similar to proper genetic inheritance(like we inherit from our parents) we can inherit properties and behaviors.
 
 The class that inherits properties and behavior is commonly known as child class and the class that is inherited is known as parent class or base class.
+
 
 ### Polymorphism
 
@@ -134,7 +136,7 @@ b2.speak();// Hello, I am b2.
 
 ![prototypal-diagram][prototypal-diagram-source]
 
-That's a lot nicer, what do you think ?. I know, you are not accustomed to this way of do objects and inherit from them. So we will study the many ways you can do object inheritance and object creation in Javascript.
+That's a lot nicer, do you think that too ?. I know, you are not accustomed to this way of do objects and inherit from them. So we will study the many ways you can do object inheritance and object creation in Javascript.
 
 
 ## Object creation modes
@@ -212,6 +214,11 @@ Object.create = function(obj){
 
 One good way to do object inheritance is via Object composition(like GoF recommend us). Due to Javascript ability to do dynamic object extension in runtime.
 
+These technique has some alias:
+
+- Concatenative inheritance, aka mixins
+- Composition
+
 
 ````javascript
 
@@ -224,7 +231,7 @@ Object.assign = Object.assign || function(target){
   sources.forEach(function(source){
     Object.keys(source).forEach(function(key){
       target[key] = source[key];
-     });
+    });
   });
 
   return target;
@@ -243,6 +250,14 @@ var pirate = {
   bottlesOfRum: 5,
   greeting: function(){
     console.log('hi i am a pirate, nice to meet you ' + this.laughType);
+  },
+  drinkBottle: function(){
+    if(this.bottlesOfRum){
+      this.bottlesOfRum--;
+      console.log('i have drink 1 bottle of rum now i have' + (this.bottlesOfRum));
+    }else{
+      console.log("i don't have any rum to drink :(");
+    }
   }
 };
 
@@ -260,6 +275,8 @@ var robot = {
   }
 };
 
+//instead of just creating hierarchical structures and brittle to changes
+//we can just create an horizontal hierarchy where you are as flexible as possible
 var ninjaPirateZombieRobot = Object.assign({}, ninja, pirate, zombie, robot);
 console.log(ninjaPirateZombieRobot);//this object can act like all of these other objects.
 ````

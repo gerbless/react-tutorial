@@ -28,7 +28,7 @@ All the examples shown here are written using the new ES6/ES2015 syntax, if you 
 
 ## What is React
 
-ReactJS is a javascript library created by facebook. It is used to create UI components for a web application.
+ReactJS is a Javascript library created by facebook. It is used to create UI components for a web application.
 A calendar, a slider, a countdown timer, all these examples can be done via ReactJS.
 
 ## Pros vs Cons
@@ -36,12 +36,12 @@ A calendar, a slider, a countdown timer, all these examples can be done via Reac
 All technologies have pros and cons, react is not an exception, so you must know what are they:
 
 - **Pros**
-    - It is just a library, not a framework, so it is easier to learn than other javascript approaches.
+    - It is just a library, not a framework, so it is easier to learn than other Javascript approaches.
     - Fixing bugs is easier than you thought.
     - It can be easily integrated with other libraries such as jQuery, Bootstrap, moment, Lodash, etc.
     - You do not need to make changes in your HTML code, react does the heavy lift for you.
 - **Cons**
-    - It requires a deeper javascript understanding.
+    - It requires a deeper Javascript understanding.
     - The ReactJS ecosystem is not as easy to install as jQuery.
     - It can be haunting at first sight.
     - It is need to compile React applications.
@@ -85,8 +85,8 @@ To work with ReactJS is not as easy as jQuery, because we need some tools to do 
 
 - **Babel** It is a compiling tool that allow us to use latest features of Javascript in older environment.
 - **Webpack / Browserify** These tools are module bundlers, they allow us to split our code in many files, keeping our code tidy. Then they will join all these files and compress in just 1 file.
-- **JSX** JSX is a special syntax that help us to create HTML markup inside javascript code.
-- **Gulp** This is a tool that allow us to automate repetitive task such as compressing images, CSS preprocessing, linting javascript code, etc.
+- **JSX** JSX is a special syntax that help us to create HTML markup inside Javascript code.
+- **Gulp** This is a tool that allow us to automate repetitive task such as compressing images, CSS preprocessing, linting code, etc.
 
 
 ## My first component
@@ -135,7 +135,7 @@ render(){
 }
 ````
 
-As you can see, we can define HTML markup inside javascript code. Do not worry, Babel(our transpiler) will transform this HTML into traditional javascript code ;).
+As you can see, we can define HTML markup inside Javascript code. Do not worry, Babel(our transpiler) will transform this HTML into traditional code ;).
 
 To attach this component in our DOM we need this line to achieve this
 
@@ -177,13 +177,13 @@ If you noticed in HTML example, an important thing to highlight is the following
 <div data-reactid=".0">This is my first react component</div>
 ````
 
-The `data-reactid=.0` attribute is for internal use, React uses it to identify this element as a react component. This one must be a readonly attribute to us.
+The `data-reactid=.0` attribute is for internal use, React uses it to identify this element as a react component. This one must be a read-only attribute to us.
 
 ## Thinking in components
 
 One of main purposes of react is to split HTML into many reusable components. So for the next exercise, we will follow this principle.
 
-We will create an user profile with username kermit and we need this requeriments to accomplish.
+We will create an user profile with username kermit and we need this requirements to accomplish.
 
 - [x] User Name
 - [x] User Role
@@ -216,7 +216,7 @@ class UserProfile extends React.Component {
 }
 ````
 
-With this, our component will have all the necessary stuff to accomplish our requeriments. If you notice here, to assign CSS classes to a react component, you should assign them in className attribute. This is because `class` keyword is a reserved word in javascript world.
+With this, our component will have all the necessary stuff to accomplish our requirements. If you notice here, to assign CSS classes to a react component, you should assign them in className attribute. This is because `class` keyword is a reserved word in Javascript world.
 
 Next step is create an user avatar component
 
@@ -569,7 +569,7 @@ With this, the parent components can share data with children components. They c
 
 ### State
 
-Just using properties, we always be dependant that a parent component gives us all the properties we need. So with this in mind we have some issues
+Just using properties, we always be dependent that a parent component gives us all the properties we need. So with this in mind we have some issues
 
 1. What happens when this component does not have a parent component(like ExampleApp) ?
 1. What happens when I want to keep some app state, but props are immutable ?
@@ -724,7 +724,7 @@ class ExampleApp extends React.Component {
 
 Each time we add new react components or new features to our codebase, our single file will be growing bigger and so on. This in some point will make our code hard to maintain and hard to make refactors and changes.
 
-To solve this issue, with the new javascript version we can use modules just like other languages do. This allow us split our code to smaller pieces and keep them as reusable as they can.
+To solve this issue, with the new Javascript version we can use modules just like other languages do. This allow us split our code to smaller pieces and keep them as reusable as they can.
 
 Let's return to our working example
 
@@ -1015,8 +1015,6 @@ export default ExampleApp;
 
 Finally, our code should look like this
 
-Finalmente, todo nuestro código debería quedar así:
-
 ````javascript
 /********** UserAvatar.js **********/
 import React from 'react';
@@ -1155,7 +1153,7 @@ The HTML code should look like this
 ![screen09][screen09]
 
 We will follow the main idea about create multiple react components. So, in this case we need to create
-several javascript files to achieve that:
+several Javascript files to achieve that:
 
 - services: we save all the logic to make AJAX calls to server side and to create correct URL.
 - FlickrImage: responsible for showing the retrieved image
@@ -1300,7 +1298,7 @@ To refer this section please follow the link below
 
 ## Browserify and Webpack
 
-In the past, javascript did not have a module system as other languages do. To solve this issue, many developers did choose to follow two options to encapsulate their code:
+In the past, Javascript did not have a module system as other languages do. To solve this issue, many developers did choose to follow two options to encapsulate their code:
 
 - Using module pattern
 - Using namespace method
@@ -1362,9 +1360,9 @@ This same functionality is possible now in browsers thanks to Browserify and Web
 
 Now, ES6 proposed their own spec to modules. This new approach is more powerful than commonJS, and we can use it thanks to babel, then it will transpile that code to old commonJS syntax.
 
-The biggest difference between browserify and webpack is that browserify is easier to use because it does not have too much configuration to get started. Webpack instead es a lot more configurable and powerful, but it requires a more detailed configuration to begin to work with.
+The biggest difference between Browserify and Webpack is that Browserify is easier to use because it does not have too much configuration to get started. Webpack instead es a lot more configurable and powerful, but it requires a more detailed configuration to begin to work with.
 
-In this tutorial we have used webpack in backstage. We will learn how to use both of them and how to use them with GULP.
+In this tutorial we have used Webpack in backstage. We will learn how to use both of them and how to use them with GULP.
 
 
 ## GULP
@@ -1376,7 +1374,7 @@ To check this section, please follow the link below
 
 ## CSS Preprocessors
 
-If you want to know a little more about what they are and why they are useful plase visit
+If you want to know a little more about what they are and why they are useful please visit
 the link below
 
 [CSS Preprocessors](css-preprocessors/readme.md)
