@@ -32,16 +32,16 @@ In our current bundle we have downloaded it, so we will not need to install anyt
 
 To create task with GULP, we need to do it in this way
 
-````javascript
+```javascript
 gulp.task(taskName, callback);
-````
+```
 
 So, with this short brief, we can start to create a gulp task as an example. We will create a task that can copy to a dist folder the following files:
 
 - styles.css
 - jquery.min.js ( or zepto if we installed it)
 
-````javascript
+```javascript
 var gulp = require('gulp');
 
 gulp.task('copy', function(){
@@ -52,13 +52,13 @@ gulp.task('copy', function(){
 
   return gulp.src(source).pipe(gulp.dest('./dist'));
 });
-````
+```
 
 Now, to use this task to do that "huge" amount of work, we need to execute in the console this:
 
-````shell
+```shell
 $ gulp copy
-````
+```
 
 Probably you will get this message in console:
 
@@ -71,15 +71,15 @@ So to fix this we can do two things:
 
 So if you want to install gulp in our global environment(which is not that bad) we can do it in this way
 
-````shell
+```shell
 $ npm install --global gulp
-````
+```
 
 So, when it finishes the install, you can run that task without troubles.
 
 However, if you do not want to pollute our global environment with gulp(as I recommend you), you can create a NPM task to run GULP (within package.json)
 
-````json
+```json
 "scripts": {
   "start": "npm run server & npm run sass",
   "build": "webpack --progress --colors",
@@ -88,13 +88,13 @@ However, if you do not want to pollute our global environment with gulp(as I rec
   "sass": "node-sass --watch --output-style=compact --indent_type=space --indent_size=2 --linefeed=lf static/css/styles.scss static/css/styles.css",
   "gulp": "gulp copy"
 }
-````
+```
 
 with that little change we can run gulp with this command
 
-````shell
+```shell
 $ npm run gulp
-````
+```
 
 After executing this task, now our folder structure should look similar to this
 
@@ -104,11 +104,11 @@ So, the other thing we can do with tasks here is to create tasks that depends up
 
 Let me show you an example of this
 
-````javascript
+```javascript
 gulp.task(taskName,['fooTask', 'barTask'], function(){
   //some lines of code right here
 });
-````
+```
 
 As you can see, this open us a bunch of possibilities in front of us
 
@@ -116,7 +116,7 @@ As you can see, this open us a bunch of possibilities in front of us
 
 If we need that just one task calls others, we can achieve this with the **default** task. So this one can call others, E.g.:
 
-````javascript
+```javascript
 gulp.task('task-a', function(){
   //code task a
 });
@@ -130,19 +130,19 @@ gulp.task('task-c', function(){
 });
 
 gulp.task('default', ['task-a', 'task-b', 'task-c']);
-````
+```
 
 However, these tasks are being executed in parallel, so you must be careful if you do not want to have unexpected behaviors.
 
 Then, to execute your default task, just run this
 
-````shell
+```shell
 # if you have installed gulp globally
 $ gulp
 
 # or if you are like me, then this command should be for you
 $ npm run gulp
-````
+```
 
 ### Tasks in watch mode
 
@@ -152,12 +152,12 @@ Well, I can say you ... YES WE CAN!. But to do this, we need one additional feat
 
 How to do it ?, well it is time to show this magic
 
-````javascript
+```javascript
 //just for good practices we call this task watch, but it might be named as you wish
 gulp.task('watch', function(){
   return gulp.watch(fileLookupArray, tasksToRunArray);
 });
-````
+```
 
 Each of these arguments are explained below
 
@@ -166,7 +166,7 @@ Each of these arguments are explained below
 
 so, in this case we would simulate that we have `script-lookup.js` and `style-lookup.css` to watch. A task for watch these files can be something like this
 
-````javascript
+```javascript
 gulp.task('task-a', function(){
   //code to do something with a
 });
@@ -178,13 +178,13 @@ gulp.task('watch', function(){
     ['task-a']
   );
 });
-````
+```
 
 ### Real example with GULP
 
 If you want to see a real example of a gulpfile.js you can check this one(it is just one gulpfile that I use in my toy projects):
 
-````javascript
+```javascript
 var gulp = require('gulp');
 var stylus = require('gulp-stylus');
 var browserify = require('browserify');
@@ -268,7 +268,7 @@ gulp.task('watch', function(){
 });
 
 gulp.task('default', ['css', 'build', 'watch']);
-````
+```
 
 ### Gulp with browserify
 
@@ -280,7 +280,7 @@ We will use for this case **Browserify** and **Babel** for these tasks
 
 So our task should look like this:
 
-````javascript
+```javascript
 var gulp = require('gulp');
 var browserify = require('browserify');
 var babelify = require('babelify');
@@ -311,13 +311,13 @@ gulp.task('build', function(){
     .pipe(source('main.bundle.js'))
     .pipe(gulp.dest('bundles'));
 });
-````
+```
 
 ### Gulp with webpack
 
 Well, lets do this same thing in Webpack
 
-````javascript
+```javascript
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var webpack = require('webpack');
@@ -337,11 +337,11 @@ gulp.task('webpack-build-dev', function(callback){
 });
 
 gulp.task('default', ['webpack-build-dev']);
-````
+```
 
 This will produce development code, but instead we want to create production code, we can do this
 
-````javascript
+```javascript
 gulp.task('webpack-build-prod', function(callback){
   var webpackProdConfig = Object.assign({}, webpackConfig);
   webpackProdConfig.output.filename = 'bundle.min.js';
@@ -359,7 +359,7 @@ gulp.task('webpack-build-prod', function(callback){
     callback();
   });
 });
-````
+```
 
 So, we just have done both ways of doing gulp tasks with browserify and webpack. In my opinion, browserify is good enough for simple use cases. But if you want real power you should consider using webpack.
 

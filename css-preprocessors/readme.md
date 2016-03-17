@@ -23,7 +23,7 @@ If you want to learn what Sass can offer you, please visit [Sass Guide][sass-gui
 
 So, for this case I will show you how it differs from current CSS file:
 
-````css
+```css
 /* Sass file */
 @mixin box {
   box-sizing: border-box;
@@ -47,7 +47,7 @@ $silver-background: #eaeaea;
   padding: 3em;
   background-color: #eaeaea;
 }
-````
+```
 
 One of the most useful things with CSS preprocessor is the ability to create mixins and variables within CSS, that allow us to reuse common code.
 
@@ -58,13 +58,13 @@ Now, to create a correct configuration that allow us to use Sass with our projec
 
 Our first step is to install it.
 
-````shell
+```shell
 $ npm install --save-dev node-sass
-````
+```
 
 This will download the dependency for us and we can use it directly in our gulpfile.js
 
-````javascript
+```javascript
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 
@@ -74,7 +74,7 @@ gulp.task('sass', function(){
     .on('error', handleErrors)
     .pipe(gulp.dest('./path/to/dist/css'))
 });
-````
+```
 
 Please note that our file must have a SCSS extension. This is because this kind of file is recognized by SASS as a SASS file.
 

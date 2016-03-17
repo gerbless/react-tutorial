@@ -75,7 +75,7 @@ This is better explained in the picture below:
 
 This is usually a way to represent class inheritance in Javascript like the other languages do:
 
-````javascript
+```javascript
 function Foo(who){
   this.me = who;
 }
@@ -100,7 +100,7 @@ var b2 = new Bar("b2");
 
 b1.speak(); // Hello, I am b1.
 b2.speak(); // Hello, I am b2.
-````
+```
 
 For this classical inheritance way to do things like other languages do, this diagram is a practical and naive representation what is happening in the background:
 
@@ -109,7 +109,7 @@ For this classical inheritance way to do things like other languages do, this di
 
 Now, lets forget all this ..... garbage found in misconceptions about how Javascript objects should work. Let's try to refactor this mess with something more clean and tidy:
 
-````javascript
+```javascript
 var Foo = {
   init: function(who){
     this.me = who;
@@ -132,7 +132,7 @@ b2.init("b2");
 
 b1.speak();// Hello, I am b1.
 b2.speak();// Hello, I am b2.
-````
+```
 
 ![prototypal-diagram][prototypal-diagram-source]
 
@@ -149,7 +149,7 @@ That's a lot nicer, do you think that too ?. I know, you are not accustomed to t
 
 This is the most similar way to create objects in other languages.
 
-````javascript
+```javascript
 function Person(name, surname){
   this.name = name;
   this.surname = surname;
@@ -161,13 +161,13 @@ User.prototype.sayHello = function(){
 
 var personInstance = new Person('douglas', 'crockford');
 personInstance.sayHello();
-````
+```
 
 ### Factory functions
 
 This way is the most flexible way to create objects in Javascript. It's the second most used way to create objects in Javascript(first one is object literals).
 
-````javascript
+```javascript
 function person(name, surname){
   var obj = {
     name: name,
@@ -182,13 +182,13 @@ function person(name, surname){
 
 var personInstance = person('douglas', 'crockford');
 personInstance.sayHello();
-````
+```
 
 ### Object cloning
 
 There is a third one way to create objects. This one is creating a clone of an exemplar Object(similar to parent class).
 
-````javascript
+```javascript
 var person = {
   name: 'douglas',
   surname: 'crockford',
@@ -207,7 +207,7 @@ Object.create = function(obj){
   f.prototype = obj;
   return new F();
 };
-````
+```
 
 
 ### Object mixins
@@ -220,7 +220,7 @@ These technique has some alias:
 - Composition
 
 
-````javascript
+```javascript
 
 //just for demo purpose, usually Object.assign is implemented in modern browsers
 //but if your browser does not support it, this is a naive implementation of object assign
@@ -279,7 +279,7 @@ var robot = {
 //we can just create an horizontal hierarchy where you are as flexible as possible
 var ninjaPirateZombieRobot = Object.assign({}, ninja, pirate, zombie, robot);
 console.log(ninjaPirateZombieRobot);//this object can act like all of these other objects.
-````
+```
 
 [back to previous page](../README.md#object-oriented-programming)
 

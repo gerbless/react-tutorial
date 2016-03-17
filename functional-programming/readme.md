@@ -47,7 +47,7 @@ Now, we want to do a function that process all workers we give to it and returns
 - workers that are male.
 - all these workers must get a year in their age
 
-````javascript
+```javascript
 var people = [
   { name: 'robert', gender: 'male', age: 21 },
   { name: 'lucy', gender: 'female', age: 30 },
@@ -76,7 +76,7 @@ console.log("\n\n\n");
 console.log(workersSumOneYear(people, 'male'));
 console.log("\n\n\n");
 console.log('people 1', people);
-````
+```
 
 The first thing we note here:
 
@@ -85,7 +85,7 @@ The first thing we note here:
 
 Well, we have done a little mistake by mutating our original array. We do not want to have this behavior so we can do a workaround to get this little bug erased from our function:
 
-````javascript
+```javascript
 var results = [];
 
 for(var i = 0; i < workers.length; i++){
@@ -99,7 +99,7 @@ for(var i = 0; i < workers.length; i++){
 }
 
 return results;
-````
+```
 
 Now, we are done. Our function makes that is intended to and we are happy because we are not introducing unexpected behavior to our program.
 
@@ -115,7 +115,7 @@ This method just need one thing, a function to execute each time a new element i
 
 So, for example
 
-````javascript
+```javascript
 var users = [
   { name: 'maria', role: 'architect' },
   { name: 'johanna', role: 'backend'},
@@ -134,11 +134,11 @@ for(var i = 0; i < users.length; i++){
 users.forEach(function(user){
   console.log('the user %s with the role %s', user.name, user.role);
 });
-````
+```
 
 As you can see, it is a lot easier to do than just to take care of traversing the array ourselves. How this works in background ?, well it works similar to this:
 
-````javascript
+```javascript
 Array.prototype.forEach = function(callback){
   var arr = this, length = this.length, i;
 
@@ -146,7 +146,7 @@ Array.prototype.forEach = function(callback){
     callback( arr[ i ], i );
   }
 };
-````
+```
 
 **Note** this method and the rest of them are implemented in Javascript, just for teaching purposes they are being re implemented.
 
@@ -155,19 +155,19 @@ Array.prototype.forEach = function(callback){
 
 The map method is other abstraction that allows us to convert an A list to a B list without do any modifications in the original List.
 
-````javascript
+```javascript
 var numbers = [1, 2, 3, 4];
 var doubledNumbers = numbers.map(function(num){ return num * 2; });
 
 console.log('original numbers', numbers);
 console.log('doubled numbers', doubledNumbers);
-````
+```
 
 doubledNumbers, in fact, is a new array that is the result of the map function traversing every element inside in numbers array.
 
 The background implementation of map is similar to this:
 
-````javascript
+```javascript
 Array.prototype.map = function(conversorFunction){
   var results = [];
 
@@ -177,7 +177,7 @@ Array.prototype.map = function(conversorFunction){
 
   return results;
 };
-````
+```
 
 ## Filter method
 
@@ -185,7 +185,7 @@ We have learned how to traverse an array with **forEach**, mappping a listA to l
 
 To show you this, we can see the code below
 
-````javascript
+```javascript
 var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 var evenNumbers = numbers.filter(function(num){ return num % 2 == 0 });
 var oddNumbers = numbers.filter(function(num){ return num % 2 != 0 });
@@ -193,11 +193,11 @@ var oddNumbers = numbers.filter(function(num){ return num % 2 != 0 });
 console.log(numbers);//[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 console.log(evenNumbers);//[2, 4, 6, 8, 10]
 console.log(oddNumbers);//[1, 3, 5, 7, 9]
-````
+```
 
 The background implementation of filter can be similar to this:
 
-````javascript
+```javascript
 Array.prototype.filter = function(predicateFunction){
   var results = [];
 
@@ -209,7 +209,7 @@ Array.prototype.filter = function(predicateFunction){
 
   return results;
 };
-````
+```
 
 ## Reduce method
 
@@ -220,19 +220,19 @@ Reduce is other method that is useful to reduce list to a unique result. Reduce 
 
 With this in mind we can do something like
 
-````javascript
+```javascript
 var numbers = [3, 5, 2, 5, 10, 20];
 var sum = numbers.reduce(function(acc, val){ return acc + val }, 0);
 
 console.log('numbers to make a sum', numbers);
 console.log(sum);//45
-````
+```
 
 This is really useful with other functionalities we will learn later.
 
 To view a possible implementation of reduce function, you can see this
 
-````javascript
+```javascript
 Array.prototype.reduce = function(reducer, initialValue){
   initialValue = initialValue || '';
 
@@ -242,13 +242,13 @@ Array.prototype.reduce = function(reducer, initialValue){
 
   return initialValue;
 };
-````
+```
 
 ## Chaining methods
 
 The most important thing about previous methods is that they can be chained together to make great things. So we will use this feature to refactor our legacy imperative code:
 
-````javascript
+```javascript
 var people = [
   { name: 'robert', gender: 'male', age: 21 },
   { name: 'lucy', gender: 'female', age: 30 },
@@ -284,7 +284,7 @@ var olderWorkers = people
 console.log(people);
 console.log(workersWithAddedYear(people, 'male'));
 console.log(olderWorkers);
-````
+```
 
 As you can see, these functions can be chained together and each of these functions do not alter the previous array.
 
@@ -296,7 +296,7 @@ Closures, according to wikipedia is this:
 
 In simpler words, are functions that can hold a state. How is this useful ?, well check the example below
 
-````javascript
+```javascript
 function counter(){
   //this is our internal count value
   var count = 0;
@@ -323,7 +323,7 @@ console.log(myCounter.increment());//returns 2
 console.log(myCounter.increment());//returns 3
 console.log(myCounter.getCount());//returns 3
 console.log(myCounter.decrement());//returns 2
-````
+```
 
 What is happening here ? well, we have create a closure holds inner state hide from us. This is a really useful feature that Javascript offer us.
 
@@ -342,11 +342,11 @@ These functions keep their generic usefulness without to deal with specific busi
 
 Do you recognize this code ?
 
-````javascript
+```javascript
 $.get('/some/path', function(data){
   //lines of code
 });
-````
+```
 
 As you can imagine, jQuery's get method also is a higher order function. It deals with all the implementation of AJAX request, but it does not have to deal with the specific business rules that you have to do. Also, you do not have to deal with all the complexity of AJAX requests, you just need to deal how to process that data sent from the server.
 
@@ -358,20 +358,20 @@ Many programmers can do an example with recursion implementing fibonacci sequenc
 
 We are going to implement a countdown that outputs its value with recursion.
 
-````javascript
+```javascript
 function countdown(number){
   console.log('countdown', number);
   countdown(number - 1);
 }
 
 countdown(10);
-````
+```
 
 As you can see, sooner or later this script will halt because of **maximum call stack exceeded**. It is because Javascript unlike pure functional programming languages it does not support **tail call optimization** and is based until ES6 in call stack optimization.
 
 Well, this definition does not help us, so as I said before, this functions can invoke itself until it does not. How to do that ? just use a conditional:
 
-````javascript
+```javascript
 function countdown(number){
   if(number < 0) return;
   console.log('countdown', number);
@@ -379,13 +379,13 @@ function countdown(number){
 }
 
 countdown(10);
-````
+```
 
 As you can see, recursion allows to express code in a very concise and elegant way. If you are wondering, In which case of the "real world", this knowledge can be applied ?.
 
 Let's suppose we want our GULP tasks can be executed properly. According to a list of task to be executed, be also should check if they have subtasks to be executed too and add them to our tasks to be executed.
 
-````javascript
+```javascript
 //original tasks to be executed
 var tasks = ['js', 'css'];
 
@@ -417,13 +417,13 @@ tasks.forEach(function(task){
 
 //the resulting array is this: [js-lint, transform, sass, shim]
 console.log(resultingTasks);
-````
+```
 
 Until now, our code works as expected. But what happens when we instead of call CSS and JS tasks we change them to call directly BUILD task ?.
 
 Well, our code will not do what we want. So, to traverse the build key and keep the former functionality we should do something like this:
 
-````javascript
+```javascript
 var tasks = ['build', 'otherTask'];
 
 var configTasks = {
@@ -452,13 +452,13 @@ tasks.forEach(function(task){
 
 //sass,shim,js-lint,transform,compress,otherTask
 console.log(resultingTasks);
-````
+```
 
 Can you imagine if we add another additional level of deepness to our tasks object ?. Our code is slighty transformed into a wild juggernaut waiting to be unleashed and destroy everything in its path. That code would be too brittle and hard to maintain. In this case, the most elegant solution is to use a recursive function.
 
 Check this
 
-````javascript
+```javascript
 var tasks = ['build', 'otherTask'];
 
 var configTasks = {
@@ -477,7 +477,7 @@ var recursive = function(config, tasks, allTasks){
 var resultingTasks = recursive(configTasks, tasks);
 //sass, shim, js-lint, transform, compress, otherTask
 console.log(resultingTasks);
-````
+```
 
 With this, we can solve if we add other level of deep to our tasks object without have to refactor our code. Wonderful is it ?
 
@@ -488,7 +488,7 @@ Curry is a simple technique: given a function with N parameters, it will return 
 
 To make an example of this, let's create a function that will add three numbers
 
-````javascript
+```javascript
 function add(a, b, c){
   return a + b + c;
 }
@@ -498,13 +498,13 @@ console.log(add(1, 2, 3)); //result = 6
 
 //curried version
 console.log(add(1)(2)(3)); //result = 6
-````
+```
 
 Can you see the great difference here ?, the importance of curry is that allow us pass arguments step by step. That let us handle future values with already loaded values.
 
 How can be done the same `add` function ?
 
-````javascript
+```javascript
 function add(a){
   return function(b){
     return function(c){
@@ -514,11 +514,11 @@ function add(a){
 }
 
 console.log(add(1)(2)(3));//result = 6
-````
+```
 
 A common practice to use with curry is to store known values and later apply them as we estimate convenient.
 
-````javascript
+```javascript
 function greeting(greetingType){
   return function(name){
     return greetingType + ' ' + name + ' !!!!';
@@ -532,11 +532,11 @@ var ciao = greeting('ciao');
 console.log(bonjour('jean'));//result = 'bonjour jean !!!!'
 console.log(hello('steve'));//result = 'hello steve !!!!'
 console.log(ciao('giancarlo'));//result = 'ciao giancarlo !!!!'
-````
+```
 
 This example was done with a already curried greeting function. But how can I convert an uncurried function into a curried one ?. You can do it with several libraries like underscore, lodash or ramdba. This should look similar to this
 
-````javascript
+```javascript
 import _ from 'lodash';
 
 var curriedSum = _.curry(function(a, b, c){
@@ -549,11 +549,11 @@ var two = curriedSum(2);
 console.log(curriedSum(1)(2)(3));
 console.log(oneplustwo(3));
 console.log(two(1, 3));
-````
+```
 
 the inner implementation of curry might be like this
 
-````javascript
+```javascript
 function curry(fn){
   var length = fn.length;
   var slice = [].slice;
@@ -572,13 +572,13 @@ function curry(fn){
 
   return curried;
 }
-````
+```
 
 ## Compose
 
 This is other useful technique commonly used in functional programming. This let us compose several smaller functions into a bigger one. Let check this:
 
-````javascript
+```javascript
 function exclaim(str){
   return str + '!';
 }
@@ -592,11 +592,11 @@ function shoutLoud(str){
 }
 
 console.log(shoutLoud('here is my old sport charles'));
-````
+```
 
 as you can see **shoudLoud** function is a composition of exclaim and toUpperCase, in the case if we want to add some additional behavior, we simply put inside our function like this:
 
-````javascript
+```javascript
 function toL33tLanguage(str){
   return str
     .replace(/a/gi, '4')
@@ -620,23 +620,23 @@ function shoutLoud(str){
 }
 
 console.log(shoutLoud('here is my old sport charles'));
-````
+```
 
 As function is composed for more functions, you can see how it becomes less readable because of nested called functions.
 
 To get rid of this we can use compose function as follows:
 
-````javascript
+```javascript
 var shoudLoud = compose(toL33tLanguage, exclaim, toUpperCase);
 //in background it will do the same toL33tLanguage(exclaim(toUpperCase(value)));
 //in lodash is named "flowRight" instead of compose
-````
+```
 
 This is just too useful when we want to create composite functions made by several bug-free simple and pure functions.
 
 How compose is working in background ? you can look this code:
 
-````javascript
+```javascript
 function compose() {
   var funcs = arguments,
       length = funcs.length;
@@ -652,7 +652,7 @@ function compose() {
     return result;
   };
 }
-````
+```
 
 ## Point free programming
 
@@ -660,7 +660,7 @@ Pointfree style means never having to say your data. Excuse me. It means functio
 
 Just to make an example of this we can see the code below
 
-````javascript
+```javascript
 var _ = require('lodash');
 
 function replace(match, replacement){
@@ -683,11 +683,11 @@ console.log(snakeCase('yo dude, how have you been ?'));
 //POINTFREE
 var pointFreeSnakeCase = _.flowRight(replace(/\s+/ig, '_'), toLowerCase);
 console.log(pointFreeSnakeCase('yo dude, how have you been ?'));
-````
+```
 
 Now, we will convert a completely pointy imperative function to a point-free composable function to see what I am talking about.
 
-````javascript
+```javascript
 //users for demo purposes
 var users = [
   { role:'admin', email: 'admin1@mailinator.com' },
@@ -720,28 +720,28 @@ var adminEmails = users
 
 //how to convert it in a point-free version
 var getAdminEmails = compose(getEmails, onlyAdmins);
-````
+```
 
 So, how must be implemented `getEmails` and `onlyAdmins` ? We need first to implement two functions we are going to need, these are map and filter functions:
 
-````javascript
+```javascript
 //this is ES6 fat arrow functions, in ES5 code is the same as
 //var map = function(fn){ return function(list){ return list.map(fn); } };
 var map = fn => list => list.map(fn);
 //same explain as map
 var filter = fn => list => list.filter(fn);
-````
+```
 
 The next task we need to do is to create getEmails and prop functions:
 
-````javascript
+```javascript
 var prop = p => obj => obj[p];
 var getEmails = map(prop('email'));
-````
+```
 
 With this, we can get email property from a object list. Now, we need to implement onlyAdmin function
 
-````javascript
+```javascript
 /*
   1.- v -> we receive what value should our property should be
   2.- p -> the property we will look to take from object
@@ -751,11 +751,11 @@ var propIsEqual = v => p => obj => prop(p)(obj) === v;
 
 //we filter the users that does not have the admin role
 var onlyAdmins = filter(propIsEqual('admin')('role'));
-````
+```
 
 Finally, all the code we have done should look like this:
 
-````javascript
+```javascript
 'use strict';
 var _ = require('lodash');
 
@@ -817,7 +817,7 @@ var pointFreeGetAdminEmails = _.flowRight(getEmails, onlyAdmins);
 
 //check if our point free version is returning the same results
 console.log('point free result', pointFreeGetAdminEmails(users));
-````
+```
 
 Notice here that `pointFreeGetAdminEmails` `getEmails` and `onlyAdmins` are point-free functions and are concise enough. However, one downside of this approach is that requires a deeper understanding of functional programming.
 
@@ -832,7 +832,7 @@ We have seen how to abstract behavior with pure functions. Now, how we deal with
 
 Let me introduce you Containers first we can get further.
 
-````javascript
+```javascript
 function Container(value){
   return {
     val: function(){
@@ -840,20 +840,20 @@ function Container(value){
     }
   };
 }
-````
+```
 
 It can hold anything and we are hiding it from outside, if we need to retrieve current value, we must call the **val** method
 
-````javascript
+```javascript
 var myValue = Container(2);
 console.log(myValue);
-````
+```
 
 Now, what if we want to work with this value ? we do not want to just retrieve from its container to just modify it and them create other container.
 
 For this case we are going to implement map to transform our value to something else
 
-````javascript
+```javascript
 function Container(value){
   return {
     __val: value,
@@ -862,11 +862,11 @@ function Container(value){
     }
   };
 }
-````
+```
 
 With this **map** function we can transform our value into something else without leaving our container.
 
-````javascript
+```javascript
 'use strict';
 
 function Container(value){
@@ -888,7 +888,7 @@ var otherValue = myValue
 
 console.log('my value val', myValue.__val);
 console.log('other value val', otherValue.__val);
-````
+```
 
 As you can see, this is what we name as 'Functors'
 
@@ -923,7 +923,7 @@ The Maybe monad can be used to model the presence or absence of a value (null or
 
 How can we implement it in a naive way ?
 
-````javascript
+```javascript
 function Maybe(value){
   return {
     isNull: function(){
@@ -934,11 +934,11 @@ function Maybe(value){
     }
   };
 }
-````
+```
 
 So, what can offer this new tool for us ? let's see with this example:
 
-````javascript
+```javascript
 var person1 = {
   name: 'Ryan',
   sport: 'soccer',
@@ -956,11 +956,11 @@ var person2 = {
 
 console.log('person 1 country',person1.address.country);// output person 1 country USA
 console.log('person 2 country', person2.address.country);// TypeError: Cannot read property 'country' of null
-````
+```
 
 If you can notice here we are getting an error to deal with, so the common choice to resolve this is something like :
 
-````javascript
+```javascript
 function getCountry(person){
   if(person && person.address && person.address.country){
     return person.address.country;
@@ -986,11 +986,11 @@ var person2 = {
 
 console.log('person 1 country', getCountry(person1));// output person 1 country USA
 console.log('person 2 country', getCountry(person2));// null
-````
+```
 
 What about that constant check validation around to get country property ? We can solve that with **Maybe** monad.
 
-````javascript
+```javascript
 'use strict';
 
 function Maybe(value){
@@ -1037,7 +1037,7 @@ var person2 = {
 
 console.log('person 1 country:', getCountry(person1));
 console.log('person 2 country:', getCountry(person2));
-````
+```
 
 Notice our application now does not crash when we access undefined values. We let Maybe take care of that each time we try to apply a transform function in our **Maybe Monad**.
 

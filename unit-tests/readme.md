@@ -32,14 +32,14 @@ To make use of unit tests, we have to choose among many tools. I can recommend y
 
 For this tutorial we will use Tape. So, we need to install a couple of dependencies to begin to work with.
 
-````shell
+```shell
 $ npm install --save-dev tape babel-tape-runner extend-tape tape-jsx-equals react-addons-test-utils react-unit faucet
-````
+```
 
 Now, we need to modify our package.json file just a little bit:
 
 
-````javascript
+```javascript
 "scripts": {
   "start": "webpack-dev-server",
   "build": "webpack --progress --colors",
@@ -51,7 +51,7 @@ Now, we need to modify our package.json file just a little bit:
 "babel": {
   "presets": ["es2015", "react", "stage-2"]
 }
-````
+```
 
 With this, we now can use tape to start unit testing of our code.
 
@@ -60,7 +60,7 @@ With this, we now can use tape to start unit testing of our code.
 
 To make our first example for an unit test, we will create a function that adds two numbers.
 
-````javascript
+```javascript
 import test from 'tape';
 
 //function to make a sum of a plus b
@@ -86,7 +86,7 @@ test('it should add correctly in these cases', t => {
   //we will finish our tests for this case
   t.end();
 });
-````
+```
 
 with this file, we can run our tests this way
 
@@ -94,7 +94,7 @@ with this file, we can run our tests this way
 
 In this case, we have prove that adding two numbers was done as expected. However, if we want to use our test cases to our function to be "bug free" we need to add more tests.
 
-````javascript
+```javascript
 const values = [
   { actual: add(1, 2), expected: 3 },
   { actual: add(2, 2), expected: 4 },
@@ -107,7 +107,7 @@ const values = [
   { actual: add(undefined, ''), expected: 0 },
   { actual: add(true, []), expected: 0 }
 ];
-````
+```
 
 Now, we execute again our test and this happens
 
@@ -115,14 +115,14 @@ Now, we execute again our test and this happens
 
 As you can see, our function is not robust as we think. So we need to do some little changes if we want to behave properly:
 
-````javascript
+```javascript
 function add(a, b) {
   a = isNaN(a) ? 0 : parseInt(a, 10);
   b = isNaN(b) ? 0 : parseInt(b, 10);
 
   return isNaN(a + b) ? 0 : a + b;
 }
-````
+```
 
 We execute our test again and we get this
 
@@ -132,7 +132,7 @@ So, as you can see, we can create tests to achieve automatic tests with our modu
 
 Also, we can test our react components to make sure they behave as expected. To do this, we need to create a test like this:
 
-````javascript
+```javascript
 import React from 'react';
 import { createRenderer } from 'react-addons-test-utils';
 import createComponent from 'react-unit';
@@ -165,7 +165,7 @@ test('it should render a button component', t => {
 
   t.end();
 });
-````
+```
 
 For this test, this execution should be similar to this
 

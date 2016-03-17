@@ -58,10 +58,10 @@ To use react, the first thing we will do is download nodeJS, the link to downloa
 
 Then we need to install node in our PC, if you have done that already, please take the terminal prompt to check it:
 
-````shell
+```shell
 $ node --version
 $ v5.3.0
-````
+```
 
 This should appear in response to your command, the version number might be a little different, but that is fine.
 The next step is to create all the environment we will use, so to prepare it, please download this script to create all the necessary dependencies: [LINK][react-essential-setup-source] (this script has to be run within unix terminal like osx or linux)
@@ -70,9 +70,9 @@ The next step is to create all the environment we will use, so to prepare it, pl
 
 we can run this code just typing in terminal(after decompressing the file and moving ourselves into the directory folder)
 
-````shell
+```shell
 $ sh startup.sh
-````
+```
 
 This will download all the project dependencies needed by this tutorial. Once finished, the project structure will be similar to this
 
@@ -93,63 +93,63 @@ To work with ReactJS is not as easy as jQuery, because we need some tools to do 
 
 Before creating our first React component we should run our development server. To do that, we must run the following command
 
-````shell
+```shell
 $ npm run start
-````
+```
 
 This will start our services to work with, then we can view our server in http://localhost:3000
 
 Then, we will replace the content inside main.js
 
-````javascript
+```javascript
 console.log('this is my 1st file');
-````
+```
 
 for this one
 
-````javascript
+```javascript
 //react library to create react component
 import React from 'react';
 
 //react library that render our react components somewhere in DOM tree
 import ReactDOM from 'react-dom';
-````
+```
 
 This allow us import React and ReactDOM modules to use them in our app, what means modules and similar is explained in module section later.
 
 Then, we can create our first react component in this way
 
-````javascript
+```javascript
 class ExampleApp extends React.Component {
 
 }
-````
+```
 
 The only function needed inside this component is the render method, which is responsible to declare HTML markup and return it. With this in mind we can create some HTML markup.
 
-````javascript
+```javascript
 render(){
   //Yup, this is weird, however we can create HTML markup directly in Javascript code
   //this is called JSX syntax and it differs a little with HTML(but no too much)
   return <div>This is my first React Component</div>;
 }
-````
+```
 
 As you can see, we can define HTML markup inside Javascript code. Do not worry, Babel(our transpiler) will transform this HTML into traditional code ;).
 
 To attach this component in our DOM we need this line to achieve this
 
-````javascript
+```javascript
 /*
   - the first sent argument, is our react component we want to render in DOM.
   - the second one, is the HTML node which will be our host element to render the react component.
 */
 ReactDOM.render(<ExampleApp />, document.getElementById('example'));
-````
+```
 
 Finally, our first example will be similar to this
 
-````javascript
+```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -161,7 +161,7 @@ class ExampleApp extends React.Component {
 
 ReactDOM.render(<ExampleApp />, document.getElementById('example'));
 
-````
+```
 
 This is our first React component, this should be similar to this in your screen
 
@@ -173,9 +173,9 @@ If you have installed react developer tools, you should see in it something like
 
 If you noticed in HTML example, an important thing to highlight is the following code
 
-````html
+```html
 <div data-reactid=".0">This is my first react component</div>
-````
+```
 
 The `data-reactid=.0` attribute is for internal use, React uses it to identify this element as a react component. This one must be a read-only attribute to us.
 
@@ -195,7 +195,7 @@ We could do this just writing one react component, but as mentioned before, we s
 
 First, we will create an user profile component
 
-````javascript
+```javascript
 class UserProfile extends React.Component {
   render(){
     return (
@@ -214,23 +214,23 @@ class UserProfile extends React.Component {
     );
   }
 }
-````
+```
 
 With this, our component will have all the necessary stuff to accomplish our requirements. If you notice here, to assign CSS classes to a react component, you should assign them in className attribute. This is because `class` keyword is a reserved word in Javascript world.
 
 Next step is create an user avatar component
 
-````javascript
+```javascript
 class UserAvatar extends React.Component {
   render() {
     return <img src="https://dl.dropboxusercontent.com/u/18850435/tutorial/Kermit.png" />;
   }
 }
-````
+```
 
 Also, we need another component to keep our data, this will be named UserData.
 
-````javascript
+```javascript
 class UserData extends React.Component {
   render() {
     return (
@@ -253,11 +253,11 @@ class UserData extends React.Component {
     );
   }
 }
-````
+```
 
 Now, we can replace placeholder mocks in our first user profile component
 
-````javascript
+```javascript
 class UserProfile extends React.Component {
   render(){
     return (
@@ -278,21 +278,21 @@ class UserProfile extends React.Component {
     );
   }
 }
-````
+```
 
 Then, we can replace former content of App component in this way
 
-````javascript
+```javascript
 class ExampleApp extends React.Component {
   render() {
     return <UserProfile />;
   }
 }
-````
+```
 
 Finally, our code will look like this
 
-````javascript
+```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -352,11 +352,11 @@ class ExampleApp extends React.Component {
 
 ReactDOM.render(<ExampleApp />, document.getElementById('example'));
 
-````
+```
 
 To create some CSS styling for this example, we will use SuitCSS style guides to create CSS code. If you want to know more about suitcss please follow this link http://suitcss.github.io
 
-````css
+```css
 .UserProfile{
   width: 50%;
   margin: auto;
@@ -374,11 +374,11 @@ To create some CSS styling for this example, we will use SuitCSS style guides to
 .UserProfile-description{
 
 }
-````
+```
 
 now, save this file as styles.css under project folder. We only need to add it within index.html
 
-````html
+```html
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
@@ -386,7 +386,7 @@ now, save this file as styles.css under project folder. We only need to add it w
   <!-- here we will add our stylesheet -->
   <link rel="stylesheet" href="styles.css" />
 </head>
-````
+```
 
 Now, our example should be similar to this
 
@@ -409,7 +409,7 @@ Props are attributes we can send to any react component just like we assign HTML
 
 E.g. if we want to send to our UserAvatar component some properties to work with, we can achieve it in this way
 
-````javascript
+```javascript
 // instead of just write this
 <UserAvatar />
 
@@ -420,13 +420,13 @@ E.g. if we want to send to our UserAvatar component some properties to work with
   hidden={false}
   suggestions={['cats', 'lemon', 'rain', 'soccer', 'beach']}
   userPreferences={{maxResults: 3, backgroundColor: '#eaeaea', autoRefresh: false}} />
-````
+```
 
 **NOTE** I must highlight one thing, just strings can be sent between quotation marks, the other data types must be between brackets.
 
 So, we will refactor our UserAvatar component to change our hardcoded to this
 
-````javascript
+```javascript
 class UserAvatar extends React.Component {
   render() {
     //we can access to url property via this.props
@@ -436,11 +436,11 @@ class UserAvatar extends React.Component {
 
 //then we can send it the right url via url attribute
 <UserAvatar url="https://dl.dropboxusercontent.com/u/18850435/tutorial/Kermit.png" />
-````
+```
 
 Also, we change all the harcoded values from react components, and replace them with our new way of passing data
 
-````javascript
+```javascript
 class UserData extends React.Component {
   render() {
     return (
@@ -482,14 +482,14 @@ class UserProfile extends React.Component {
     );
   }
 }
-````
+```
 
 As you can see, the URL we want to send to react component is harcoded inside our component. To avoid this, we can
 keep delegating the properties we want to our parent component and so on.
 
 After all the refactor, our code will look like this
 
-````javascript
+```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -561,7 +561,7 @@ var user = {
 //we have delegated all the properties to our root component
 //yes, we can also retrieve all the attributes we need in a property
 ReactDOM.render(<ExampleApp user={user} />, document.getElementById('example'));
-````
+```
 
 With this, the parent components can share data with children components. They can send properties to children components, and these will use them as they want.
 
@@ -578,7 +578,7 @@ For these cases, we can also have other special attribute called state. As its n
 
 With this in mind, we can refactor our ExampleApp component to this one
 
-````javascript
+```javascript
 class ExampleApp extends React.Component {
   //to create initial state data we must define a constructor method inside our react component
   constructor() {
@@ -604,20 +604,20 @@ class ExampleApp extends React.Component {
 
 //we delete from here user property and transfer it to internal component state
 ReactDOM.render(<ExampleApp />, document.getElementById('example'));
-````
+```
 
 The most important thing about state is when it changes, the component will be re rendered,
 to show the new data. When this happens, the parent component will be rendered again and their child as well
 
 To make this happen, we need to call a special method called `setState` and must be used like this
 
-````javascript
+```javascript
 this.setState(newState);
-````
+```
 
 when this happens, the component will be re rendered. Now, to show you an example of this, we can add some some to our current code
 
-````javascript
+```javascript
 class ExampleApp extends React.Component {
   constructor() {
     super();
@@ -645,7 +645,7 @@ class ExampleApp extends React.Component {
       });
     }, 3500);
   }
-````
+```
 
 With this, we can store internal state to our app, and also we can send properties to our child components.
 
@@ -653,15 +653,15 @@ With this, we can store internal state to our app, and also we can send properti
 
 When we want to handle some event over a react component, we can achieve that without effort. To catch events in react they must be written in this way
 
-````javascript
+```javascript
 //each event must be written in camelcase
 <UserAvatar onClick={eventHandler} onMouseOver={anotherEventHandler} />
-````
+```
 
 To add this to our former example, we can catch when some user presses avatar image, this action will display
 an alert which notify that action to our user.
 
-````javascript
+```javascript
 class UserAvatar extends React.Component {
   //we create our event handler inside react component in this way
   handleClick() {
@@ -673,13 +673,13 @@ class UserAvatar extends React.Component {
     return <img src={this.props.url} onClick={this.handleClick} />;
   }
 }
-````
+```
 
 The, when our user pressed the avatar images it will activate the alert. It is important to mention here, that we can also create event that children components will take and do something.
 
 Following the same example above, we can also achieve that in this way(the other code will be omitted by the sake of brevity)
 
-````javascript
+```javascript
 class UserAvatar extends React.Component {
   render() {
     return <img src={this.props.url} onClick={this.props.onClick} />;
@@ -718,7 +718,7 @@ class ExampleApp extends React.Component {
   render() {
     return <UserProfile handleClick={this.handleClick} />;
   }
-````
+```
 
 ## Modules
 
@@ -728,7 +728,7 @@ To solve this issue, with the new Javascript version we can use modules just lik
 
 Let's return to our working example
 
-````javascript
+```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -813,7 +813,7 @@ class ExampleApp extends React.Component {
 }
 
 ReactDOM.render(<ExampleApp />, document.getElementById('example'));
-````
+```
 
 This we will refactor to a more modular approach. The first thing we need to do is to create a component folder.
 Then we will create the following files inside it.
@@ -833,7 +833,7 @@ This occurs because now our app is split into multiple files. To make our exampl
 
 So, we will begin with our UserAvatar.js file
 
-````javascript
+```javascript
 class UserAvatar extends React.Component {
   handleClick() {
     alert('Hey you, stop clicking at me !');
@@ -846,13 +846,13 @@ class UserAvatar extends React.Component {
 
 //we add this line that allow us to export this snippet of code to other modules
 export default UserAvatar;
-````
+```
 
 The one thing we can notice is we are adding the sentence `export default UserAvatar`. This is necessary to indicate that our UserAvatar component can be imported by other modules.
 
 We do this same task inside UserProfile and UserData. Now, inside main.js code will be written like this
 
-````javascript
+```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 // here we import our component from a module
@@ -883,7 +883,7 @@ class ExampleApp extends React.Component {
 }
 
 ReactDOM.render(<ExampleApp />, document.getElementById('example'));
-````
+```
 
 If we do this in our code, then in browser's console will output an error like this
 
@@ -892,7 +892,7 @@ If we do this in our code, then in browser's console will output an error like t
 This happens because in our module we do not have defined any dependency in it. In this case, we need to load
 React to use it. So, to import this dependency, we need to add just one more line to accomplish that
 
-````javascript
+```javascript
 //this is the line we are adding to load react dependency
 import React from 'react';
 import UserAvatar from './UserAvatar';
@@ -921,7 +921,7 @@ class UserProfile extends React.Component {
 }
 
 export default UserProfile;
-````
+```
 
 Also, UserAvatar and UserData will need this same dependency, so add it in the same way as we did before.
 
@@ -931,7 +931,7 @@ After this, we can see how our react example will behave as before.
 
 Now, the one task left here is to copy our ExampleApp component into ExampleApp.js, if we do this, the code in ExampleApp.js will look like this
 
-````javascript
+```javascript
 import React from 'react';
 import UserProfile from './components/UserProfile';
 
@@ -961,17 +961,17 @@ class ExampleApp extends React.Component {
 }
 
 export default ExampleApp;
-````
+```
 
 When we finish this task, our main.js file should be like this one
 
-````javascript
+```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ExampleApp from './components/ExampleApp';
 
 ReactDOM.render(<ExampleApp />, document.getElementById('example'));
-````
+```
 
 Now, this error will be displayed in our console
 
@@ -980,7 +980,7 @@ Now, this error will be displayed in our console
 Please do not be afraid, this occurs because we have forgotten to change the import route of UserProfile component
 in ExampleApp.js, so we need to refactor it
 
-````javascript
+```javascript
 import React from 'react';
 
 //we change this line for next one
@@ -1011,11 +1011,11 @@ class ExampleApp extends React.Component {
 }
 
 export default ExampleApp;
-````
+```
 
 Finally, our code should look like this
 
-````javascript
+```javascript
 /********** UserAvatar.js **********/
 import React from 'react';
 
@@ -1132,7 +1132,7 @@ import ExampleApp from './components/ExampleApp';
 
 ReactDOM.render(<ExampleApp />, document.getElementById('example'));
 /********** main.js **********/
-````
+```
 
 The project structure should look similar to this image below
 
@@ -1164,7 +1164,7 @@ several Javascript files to achieve that:
 
 First of all, we will write all the needed logic to create AJAX calls in services.js
 
-````javascript
+```javascript
 //function that allow us to create the correct URL according to search term
 const url = searchTerm => (
   `https://api.flickr.com/services/feeds/photos_public.gne?tags=${searchTerm}&format=json&&jsoncallback=?`
@@ -1172,14 +1172,14 @@ const url = searchTerm => (
 
 //function that allow us to make AJAX request to retrieve the info according to URL
 export const findPhotosByTerm = (searchTerm, cb) => $.get(url(searchTerm), cb);
-````
+```
 
 So, when we create a ajax call searching for kitties, the created URL for that term should be similar to this:
 `https://api.flickr.com/services/feeds/photos_public.gne?tags=kitties&format=json&&jsoncallback=?`
 
 After this, we will create the code for FlickrImage component
 
-````javascript
+```javascript
 import React from 'react';
 
 /**
@@ -1193,12 +1193,12 @@ class FlickrImage extends React.Component {
 }
 
 export default FlickrImage;
-````
+```
 
 Then, we need to create an Image gallery component to wrap all our FlickImages we found with
 search term.
 
-````javascript
+```javascript
 import React from 'react';
 import FlickrImage from './FlickrImage';
 
@@ -1214,11 +1214,11 @@ class ImageGallery extends React.Component {
 }
 
 export default ImageGallery;
-````
+```
 
 Now, the code for SearchTermContainer component should be similar to this
 
-````javascript
+```javascript
 import React from 'react';
 import { findPhotosByTerm } from './services';
 
@@ -1248,11 +1248,11 @@ class SearchTermContainer extends React.Component {
 }
 
 export default SearchTermContainer;
-````
+```
 
 The last component we need is FlickApp that contains all other components
 
-````javascript
+```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import SearchTermContainer from './SearchTermContainer';
@@ -1283,7 +1283,7 @@ class FlickrApp extends React.Component {
 }
 
 export default FlickrApp;
-````
+```
 
 Finally, we should get something similar to this:
 
@@ -1303,7 +1303,7 @@ In the past, Javascript did not have a module system as other languages do. To s
 - Using module pattern
 - Using namespace method
 
-````javascript
+```javascript
 //using module pattern
 var myModule = (function(){
   var myPrivateCounter = 0;
@@ -1318,9 +1318,9 @@ var myModule = (function(){
     }
   };
 })();
-````
+```
 
-````javascript
+```javascript
 //using namespaces
 window.namespace = {};
 namespace.utils = {};
@@ -1332,29 +1332,29 @@ namespace.utils.rutFormatter = function(rut){
   //........
   return newRut;
 };
-````
+```
 
 When nodeJS appeared, it was created a module system specification(named commonJS). This spec, has a module system in this way:
 
 exporting modules
 
-````javascript
+```javascript
 //exporting modules with commonJS syntax
 module.exports = {
   foo: function(num, workerName){
     return workerName + '-' + num;
   }
 };
-````
+```
 
 importing modules
 
-````javascript
+```javascript
 //importing modules with commonJS syntax
 var myModule = require('../utils/myModule');
 
 myModule.foo(1, 'dave');
-````
+```
 
 This same functionality is possible now in browsers thanks to Browserify and Webpack. Each of these implement this spec. If you use one of these package bundlers we can joy to get all this benefits.
 
@@ -1396,7 +1396,7 @@ If you want to know what is about this functional programming trendy is spreadin
 
 ## Object oriented programming
 
-Objects, how they work in javascript with the Prototypal inheritance, link below
+Objects, how they work in Javascript with the Prototypal inheritance, link below
 
 [Object Oriented Programming](object-oriented-programming/readme.md)
 

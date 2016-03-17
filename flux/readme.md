@@ -66,19 +66,19 @@ If you do not know about which software design patterns are commonly used in Jav
 
 Our very first step is import all the dependencies that we will need
 
-````javascript
+```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Dispatcher } from 'flux';
 import { EventEmitter } from 'events';
-````
+```
 
 `Dispatcher` is the one made by facebook and `EventEmitter` is a nodejs library that allow us to use in some sense the publisher/subscriber pattern.
 
 Now, we need to create our custom dispatcher handler that allow us to use for our needs.
 
 
-````javascript
+```javascript
 
 //we encapsulate it inside our 'flux' module
 const flux = (() => {
@@ -96,11 +96,11 @@ const flux = (() => {
 
   return publicAPI;
 })();
-````
+```
 
 Them, we code the action creators, responsible of emit the action we want to trigger:
 
-````javascript
+```javascript
 
 //all our actions will be kept inside our actions object
 const actions = (() => {
@@ -127,11 +127,11 @@ const actions = (() => {
     }
   };
 })();
-````
+```
 
 Next step is our own implementation of store:
 
-````javascript
+```javascript
 //this will be our event we will be listening to emit changes and responding to changes
 const CHANGE_EVENT = 'change';
 
@@ -185,11 +185,11 @@ const store = (() => {
 
   return Store;
 })();
-````
+```
 
 Now, we need to create all our components we will use
 
-````javascript
+```javascript
 
 const ProductImage = props => <img src={props.URL} />;
 
@@ -231,11 +231,11 @@ const Basket = props => (
     {props.products.map((product, index) => <Item key={index} {...product} />)}
   </div>
 );
-````
+```
 
 Now, we need to create our App(root component)
 
-````javascript
+```javascript
 class FluxApp extends React.Component {
   constructor(){
     super();
@@ -290,11 +290,11 @@ ReactDOM.render(<FluxApp />, document.getElementById('example'));
 $.get('/data.json', function(products){
   actions.addProducts(products);
 });
-````
+```
 
 Finally, our code should look similar to this(removing all comments)
 
-````javascript
+```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Dispatcher } from 'flux';
@@ -477,11 +477,11 @@ ReactDOM.render(<FluxApp />, document.getElementById('example'));
 $.get('/data.json', function(products){
   actions.addProducts(products);
 });
-````
+```
 
 our CSS should be like this
 
-````css
+```css
 .u-center{
   text-align: center;
 }
@@ -538,11 +538,11 @@ our CSS should be like this
   color: white;
   border: 3px solid #4ade35;
 }
-````
+```
 
 Then, our json data should be something like this
 
-````json
+```json
 [
     {
         "id": 1,
@@ -580,7 +580,7 @@ Then, our json data should be something like this
         "imageURL": "http://placehold.it/150/5e1b5e/969696"
     }
 ]
-````
+```
 
 So, our example should look similar to this(regardless the pictures)
 
@@ -601,17 +601,17 @@ Redux besides follows three main principles:
 
 To install redux, we need to type in our console the following command
 
-````shell
+```shell
 $ npm install --save redux
-````
+```
 
 To simplify the example, We are going to just work within 1 file. The first thing we should do is to import our dependencies:
 
-````javascript
+```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, combineReducers } from 'redux';
-````
+```
 
 As you can see, we are importing two functions ... `createStore` and `combineReducers`, these we will know what they are and what they do later.
 
@@ -624,7 +624,7 @@ the former application state as first argument and the triggered action as secon
 
 To apply these restrictions, we will do it through our product catalog:
 
-````javascript
+```javascript
 /**
   we receive these arguments in this order:
   1.- previous application state
@@ -641,7 +641,7 @@ function productCatalog(previousState = [], action){
       return previousState;
   }
 }
-````
+```
 
 The most important thing here is to notice in 'ADD_PRODUCTS' case occurs something very interesting:
 
@@ -650,7 +650,7 @@ As I said before, the main idea is not mutate the previous state, but to create 
 
 So, we have our first reducer responsible of doing product catalog stuff. Now, we can create another reducer to handle our shopping cart basket.
 
-````javascript
+```javascript
 function shoppingCart(previousState = [], action){
   switch(action.type){
     case 'ADD_PRODUCT':
@@ -664,33 +664,33 @@ function shoppingCart(previousState = [], action){
       return previousState;
   }
 }
-````
+```
 
 The best thing about reducers is you can create as many as you want. Each of these will be responsible for a specific section in our application. Each of these can listen to certain actions.
 
 Then, our reducers can be composed to create just one reducer that has all the functionalities of each of those through this simple line:
 
-````javascript
+```javascript
 var rootReducer = combineReducers({ productCatalog, shoppingCart });
 
 //Babel translates the code from above to this one
 var rootReducer = combineReducers({ productCatalog: productCatalog, shoppingCart: shoppingCart });
-````
+```
 
 To create the store, we need to do this
 
-````javascript
+```javascript
 var store = createStore(rootReducer);
 
 //we just subscribe a callback to know when our store state changes
 store.subscribe(() => console.log('new state : ', store.getState()));
-````
+```
 
 Now, we will begin to create our React components like as we have done before.
 
 Lets start with ProductImage component
 
-````javascript
+```javascript
 //if we are not going to handle state, we can refactor this component as below shows
 class ProductImage extends React.Component {
   render() {
@@ -699,11 +699,11 @@ class ProductImage extends React.Component {
 }
 
 const ProductImage = (props) => <img src={props.URL} />;
-````
+```
 
 Then we create Product component
 
-````javascript
+```javascript
 class Product extends React.Component {
   render() {
     return (
@@ -731,11 +731,11 @@ const Product = (props) => (
     </div>
   </div>
 );
-````
+```
 
 Also we need to create ProductList component
 
-````javascript
+```javascript
 class ProductList extends React.Component {
   render() {
     return (
@@ -789,11 +789,11 @@ const Basket = (props) => (
     {props.products.map((product, index) => <Item key={index} {...product} />)}
   </div>
 );
-````
+```
 
 Now, we just need to create our App
 
-````javascript
+```javascript
 /**
   this one is different, because it holds some actions inside our app
   so, for this case we will not
@@ -825,11 +825,11 @@ class ReduxApp extends React.Component {
     );
   }
 }
-````
+```
 
 Finally, our code should look like this :
 
-````javascript
+```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, combineReducers } from 'redux';
@@ -944,7 +944,7 @@ ReactDOM.render(<ReduxApp />, document.getElementById('example'));
 $.get('/data.json', function(products){
   store.dispatch({ type: 'ADD_PRODUCTS', products});
 });
-````
+```
 
 We are going to use the same CSS used in facebook flux. So, in this case the application should behave as before
 
