@@ -11,6 +11,7 @@
         - [Constructor functions](#constructor-functions)
         - [Factory functions](#factory-functions)
         - [Object cloning](#object-cloning)
+        - [Concatenative Inheritance](#concatenative-inheritance)
 
 
 ## What is Object Oriented Programming
@@ -210,7 +211,7 @@ Object.create = function(obj){
 ```
 
 
-### Object mixins
+### Concatenative Inheritance
 
 One good way to do object inheritance is via Object composition(like GoF recommend us). Due to Javascript ability to do dynamic object extension in runtime.
 

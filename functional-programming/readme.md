@@ -1041,6 +1041,10 @@ console.log('person 2 country:', getCountry(person2));
 
 Notice our application now does not crash when we access undefined values. We let Maybe take care of that each time we try to apply a transform function in our **Maybe Monad**.
 
-Other important monad that is very popular right now is the Promise monad(Yup, Promise is a monad). It implements `flatMap` as `then` method. What's important in promises ? Well, you can abstract your work to process your data flow without worrying in what steps are required to accomplish that. Also, you have a wrapper that allow you to work with your data seamlessly and when is available it will trigger all the listeners.
+Other important monad that is very popular right now is the Promise monad(Yup, Promise is a monad). It implements `flatMap` as `then` method. What's important in promises ? Well, you can abstract your work to process your data flow without worrying in what steps are required to accomplish that. Also, you have a wrapper that allow you to work with your data seamlessly and when is available it will trigger all the listeners. To check more about promises, check why promise is a monad for asynchronous programming [link][promise-monad-source]
+
+Furthermore, if you want to know more about monads in javascript you can check this video where douglas crockford talks about monads here [douglas crockford monads][douglas-crockford-monad]
 
 [back to previous page](../README.md#functional-programming)
+[promise-monad-source]:https://blog.jcoglan.com/2011/03/11/promises-are-the-monad-of-asynchronous-programming/
+[douglas-crockford-monad]:https://www.youtube.com/watch?v=dkZFtimgAcM
