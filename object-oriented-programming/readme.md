@@ -20,7 +20,17 @@ First, we may look what object oriented programming is according to wikipedia
 
 > Object-oriented programming (OOP) is a programming paradigm based on the concept of "objects", which may contain data, in the form of fields, often known as attributes; and code, in the form of procedures, often known as methods. A distinguishing feature of objects is that an object's procedures can access and often modify the data fields of the object with which they are associated (objects have a notion of "this" or "self"). In OO programming, computer programs are designed by making them out of objects that interact with one another. There is significant diversity in object-oriented programming, but most popular languages are class-based, meaning that objects are instances of classes, which typically also determines their type.
 
-What is important in object oriented programming ? Well, we can do a lot code reuse for our own needs.
+What is important in object oriented programming ? Well, we can do a lot code reuse for our own needs. We can abstract any idea or stuff from the real world to our code. Think about a car, can you describe it ?
+
+- It has 4 wheels.
+- I can be brown, blue, red, green, etc.
+- It has a steering wheel.
+- It has an engine.
+- etc.
+
+All of these characteristics is what identifies a car. Also, in this car idea you can do certain things with this car. You can make a trip in it or maybe go to the job.
+
+So, objects in the simplest thing is a data container with behavior related to that data. That's all
 
 There are many important things about this paradigm, but I want to mention three of them:
 
@@ -30,24 +40,40 @@ There are many important things about this paradigm, but I want to mention three
 
 Each of these will be explained below
 
-
 ### Encapsulation
 
 All your objects should work as expected, but you do not have to know how
 it works in the background. All this functionality and inner working to make things happen
 must be hidden to outsiders.
 
+E.g. Think in a regular engine. You use it in a car, but you don't know how it really works. The most interesting part about this is you use it seamlessly, you know what it does and it works perfectly, you don't care about how all the machinery is working in the background.
+
+That is encapsulation.
+
 
 ### Inheritance
 
-What happens when you want to make to objects that have properties and behavior in common ? Do you have to duplicate code to achieve that ?. Oh no my friend, you can do an inheritance. Similar to proper genetic inheritance(like we inherit from our parents) we can inherit properties and behaviors.
+What happens when you want to make to objects that have properties and behavior in common ? Do you have to duplicate code to achieve that ?. Oh no my friend, you can do an inheritance. Similar to proper genetic inheritance(like we inherit characteristics from our parents) we can inherit properties and behaviors from one class to another.
 
 The class that inherits properties and behavior is commonly known as child class and the class that is inherited is known as parent class or base class.
+
+Let's suppose we have a dog class and a cat class, what they have in common ?:
+
+- they have 4 legs
+- they have fur
+- they have a tail
+- they run crazily
+
+for this case, we could have a common class named Animal that dogs and cats can inherit from it to get all the characteristics that Animal class have.
 
 
 ### Polymorphism
 
 If you are a Child class you can act like your parent class. That's important because you as a subclass can implement specific behavior that your parent component does not. This is really useful when you want to declare generic classes to operate with your data. With Polymorphism you can extend or implement implementation detail with your child class and behave like its parent class.
+
+Following the previous example with cats and dogs, let's suppose we have a function that needs to receive an animal. We know with inheritance, cats and dogs are child classes from animal class, so they can behave just like this animal class.
+
+This is known as polymorphism, child classes can act like their parent classes.
 
 
 ## Objects in Javascript
@@ -145,6 +171,8 @@ That's a lot nicer, do you think that too ?. I know, you are not accustomed to t
 - Constructor functions
 - Factory functions
 - Object delegation
+- Concatenative Inheritance
+
 
 ### Constructor functions
 
@@ -276,7 +304,7 @@ var robot = {
   }
 };
 
-//instead of just creating hierarchical structures and brittle to changes
+//instead of just creating hierarchical structures and brittle to changes classes
 //we can just create an horizontal hierarchy where you are as flexible as possible
 var ninjaPirateZombieRobot = Object.assign({}, ninja, pirate, zombie, robot);
 console.log(ninjaPirateZombieRobot);//this object can act like all of these other objects.
