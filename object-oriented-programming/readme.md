@@ -307,7 +307,7 @@ var robot = {
 //instead of just creating hierarchical structures and brittle to changes classes
 //we can just create an horizontal hierarchy where you are as flexible as possible
 var ninjaPirateZombieRobot = Object.assign({}, ninja, pirate, zombie, robot);
-console.log(ninjaPirateZombieRobot);//this object can act like all of these other objects.
+console.log(ninjaPirateZombieRobot);//this object can act like all of those other objects.
 ```
 
 [back to previous page](../README.md#object-oriented-programming)

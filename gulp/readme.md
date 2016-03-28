@@ -9,7 +9,7 @@
 7. [Gulp with webpack](#gulp-with-webpack)
 
 
-Everyone had done repetitive tasks during projects, some of these task had been:
+Everyone has done repetitive tasks during projects, some of these task had been:
 
 - compress JS files
 - pre process CSS files
@@ -23,7 +23,7 @@ So, to avoid all these tasks(in which we are prone to make mistakes), we will us
 
 ### What is gulp
 
-GULP is a task automator. With it you can create tasks that allow us to automate whatever task you want.
+GULP is a task handler. With it you can create tasks that allow us to automate whatever task you want.
 
 In our current bundle we have downloaded it, so we will not need to install anything. The only requirement is that we need to have a `gulpfile.js` file in our current folder.
 
@@ -148,7 +148,7 @@ $ npm run gulp
 
 Thus, GULP has show us a lot of possibilities to do what we want. But ... one thing that bothers me right now, is the repeating task of executing our command again and again and so on. Don't you think if we could just save a file and GULP execute tasks for us ?
 
-Well, I can say you ... YES WE CAN!. But to do this, we need one additional feature of GULP, that one is put tasks in watch mode.
+Well, I can say you ... of course we can!. But to do this, we need one additional feature of GULP, that one is put tasks in watch mode.
 
 How to do it ?, well it is time to show this magic
 
