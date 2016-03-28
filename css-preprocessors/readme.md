@@ -5,7 +5,7 @@
 3. [Gulp configuration](#gulp-configuration)
 
 
-Now, we will discuss a new tool to help us creating CSS styles. These tools help us to create CSS styles easily, also they provide us loops and metaprogramming to create styles. These tools are called CSS preprocessors and we will use them from now on.
+Now, we will discuss a new tool to help us creating CSS styles. These tools help us to create CSS styles easily, also they provide us loops and other stuff to create styles. These tools are called CSS preprocessors and we will use them from now on.
 
 ### Sass vs Less vs Stylus
 
@@ -33,14 +33,14 @@ So, for this case I will show you how it differs from current CSS file:
 
 $silver-background: #eaeaea;
 
-.User {
-  @include block;
+.user {
+  @include box;
   padding: 3em;
   background-color: $silver-background;
 }
 
 /* CSS output */
-.User {
+.user {
   box-sizing: border-box;
   display: inline-block;
   vertical-align: top;
@@ -51,6 +51,30 @@ $silver-background: #eaeaea;
 
 One of the most useful things with CSS preprocessor is the ability to create mixins and variables within CSS, that allow us to reuse common code.
 
+Also, you can do a lot of things that allow us to write code easier than before:
+
+```css
+@for $i from 1 through 100 {
+  @if($i % 5 == 0){
+    .u-w#{$i} { width: #{$i + "%"}; }
+  }
+}
+
+/* output */
+.u-w5 {
+  width: 5%;
+}
+
+.u-w10 {
+  width: 10%;
+}
+
+.u-w15 {
+  width: 15%;
+}
+/* and so on */
+```
+
 
 ### Gulp configuration
 
@@ -59,7 +83,7 @@ Now, to create a correct configuration that allow us to use Sass with our projec
 Our first step is to install it.
 
 ```shell
-$ npm install --save-dev node-sass
+$ npm install --save-dev gulp-sass
 ```
 
 This will download the dependency for us and we can use it directly in our gulpfile.js
