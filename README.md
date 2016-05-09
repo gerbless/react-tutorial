@@ -1298,71 +1298,9 @@ To refer this section please follow the link below
 
 ## Browserify and Webpack
 
-In the past, Javascript did not have a module system as other languages do. To solve this issue, many developers did choose to follow two options to encapsulate their code:
+How javascript was handling namespaces and modules ?, if you want to know all of that, please visit the link below:
 
-- Using module pattern
-- Using namespace method
-
-```javascript
-//using module pattern
-var myModule = (function(){
-  var myPrivateCounter = 0;
-
-  return {
-    increment: function(){
-      myPrivateCounter++;
-    },
-
-    getCounter: function(){
-      return myPrivateCounter;
-    }
-  };
-})();
-```
-
-```javascript
-//using namespaces
-window.namespace = {};
-namespace.utils = {};
-namespace.models = {}
-//..... code and more code
-//..... code and more code
-
-namespace.utils.rutFormatter = function(rut){
-  //........
-  return newRut;
-};
-```
-
-When nodeJS appeared, it was created a module system specification(named commonJS). This spec, has a module system in this way:
-
-exporting modules
-
-```javascript
-//exporting modules with commonJS syntax
-module.exports = {
-  foo: function(num, workerName){
-    return workerName + '-' + num;
-  }
-};
-```
-
-importing modules
-
-```javascript
-//importing modules with commonJS syntax
-var myModule = require('../utils/myModule');
-
-myModule.foo(1, 'dave');
-```
-
-This same functionality is possible now in browsers thanks to Browserify and Webpack. Each of these implement this spec. If you use one of these package bundlers we can joy to get all this benefits.
-
-Now, ES6 proposed their own spec to modules. This new approach is more powerful than commonJS, and we can use it thanks to babel, then it will transpile that code to old commonJS syntax.
-
-The biggest difference between Browserify and Webpack is that Browserify is easier to use because it does not have too much configuration to get started. Webpack instead es a lot more configurable and powerful, but it requires a more detailed configuration to begin to work with.
-
-In this tutorial we have used Webpack in backstage. We will learn how to use both of them and how to use them with GULP.
+[Browserify and Webpack](browserify-and-webpack/readme.md)
 
 
 ## GULP

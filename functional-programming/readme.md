@@ -38,6 +38,7 @@ With all this definition we can find some goals to achieve with this new approac
 - **Composable**: As objects can be composable in Object Oriented Programming, a function in functional programming can be composed by several functions.
 - **Parallelizable**: One of the key features of functional programming is avoid to use assignation and avoid side-effects. With these ideas in mind, we can avoid to think how to deal with threads and share variables and dead-locks and all that stuff.
 
+
 ## First example
 
 So, how to code like a functional programmer?, well .... to know how to we must create an example doing our code like we do always.
