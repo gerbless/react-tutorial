@@ -1,4 +1,4 @@
-# React Tutorial
+# ReactJS Tutorial
 
 1. [ES2015 Syntax](#es2015-syntax)
 1. [What is React](#what-is-react)
@@ -12,7 +12,7 @@
 1. [Modules](#modules)
 1. [Real example](#real-example)
 1. [Flux vs MVC](#flux-vs-mvc)
-1. [Browserify and Webpack](#browserify-and-webpack)
+1. [Modules](#modules)
 1. [Gulp](#gulp)
 1. [CSS Preprocessors](#css-preprocessors)
 1. [Unit tests](#unit-tests)
@@ -52,7 +52,7 @@ All technologies have pros and cons, react is not an exception, so you must know
 For this tutorial, and for most use cases, I recommend you Atom, which is the text editor created by github staff, to download it you can visit https://atom.io/
 
 Also, we will do all these examples in google chrome and react developer tools extension, you can found it right here
-https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?utm_source=chrome-app-launcher-info-dialog
+[Chrome React developer tools][react-developer-tools]
 
 To use react, the first thing we will do is download nodeJS, the link to download it is right here [NodeJS][node-js-source]
 
@@ -1296,11 +1296,11 @@ To refer this section please follow the link below
 [Flux vs MVC](flux/readme.md)
 
 
-## Browserify and Webpack
+## Modules
 
 How javascript was handling namespaces and modules ?, if you want to know all of that, please visit the link below:
 
-[Browserify and Webpack](browserify-and-webpack/readme.md)
+[Modules](modules/readme.md)
 
 
 ## GULP
@@ -1340,6 +1340,7 @@ Objects, how they work in Javascript with the Prototypal inheritance, link below
 
 
 [es-syntax-source]:http://es6-features.org/#Constants
+[react-developer-tools]:https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?utm_source=chrome-app-launcher-info-dialog
 [node-js-source]:https://nodejs.org/en/download/stable/
 [react-essential-setup-source]:https://gist.github.com/aether7/05a8ece21ae6775ce8d6
 [screen01]:images/screen01.png

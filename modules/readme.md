@@ -1,4 +1,4 @@
-# Browserify and Webpack
+# Modules
 
 In the past, Javascript did not have a module system as other languages do. All variables that were not bound to an object they were bound to global space. This was a bad design choice from Brendan Eich(but I could not complain to him, this language just took 10 days to be designed and implemented).
 
@@ -6,7 +6,6 @@ To solve this issue, many developers did choose to follow two options to encapsu
 
 - Using module pattern
 - Using namespace method
-
 
 Using a module pattern, we can encapsulate all our code that is related to internal behavior. We just have public modules to interact with.
 
@@ -69,10 +68,10 @@ var myModule = require('../utils/myModule');
 myModule.foo(1, 'dave');
 ```
 
-This same functionality is possible now in browsers thanks to Browserify and Webpack. Each of these implement this spec. If you use one of these package bundlers we can joy to get all this benefits.
+This same functionality is possible now in browsers thanks to Browserify and Webpack. Each of these implement this spec. If you use one of these package bundlers we can be happy to get all this benefits.
 
-Now, ES6 proposed their own spec to modules. This new approach is more powerful than commonJS, and we can use it thanks to babel, then it will transpile that code to old commonJS syntax.
+Now, ES6 proposed their own enhanced spec to modules. This new approach is more powerful than commonJS, allowing us to import and statically analyze code. Unfortunately, not all browsers support this spec yet; however, we can use it right now thanks to babel. Babel can transpile this code into old known commonJS syntax.
 
-The biggest difference between Browserify and Webpack is that Browserify is easier to use because it does not have too much configuration to get started. Webpack instead es a lot more configurable and powerful, but it requires a more detailed configuration to begin to work with.
+The biggest difference between Browserify and Webpack is that Browserify is easier to use, because it does not have too much configuration to get started. Webpack instead, is a lot more configurable and powerful, but it requires a more detailed configuration to begin to work with.
 
 In this tutorial we have used Webpack in the background. We will learn how to use both of them and how to use them with GULP.
