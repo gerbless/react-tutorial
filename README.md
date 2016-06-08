@@ -402,13 +402,13 @@ The most important thing here, is to keep our components as small as possible. W
 
 ## Props and States
 
-Regrettably, with the current implementation of our react components, they are not as reusable as we want, because we have so many hardcoded values in them. However, we can refactor them to make more reusable, we can send dynamic properties to them. They are known as props.
+With the current implementation of our React components, they are not as reusable as we want, because we have many hardcoded values in them. However, we can refactor them to make more reusable sending to them the properties they need. These properties are know as props.
 
 ### Props
 
-Props are attributes we can send to any react component just like we assign HTML attributes to HTML elements.
+Props are attributes we can send to any React component, just like we assign HTML attributes to HTML elements.
 
-E.g. if we want to send to our UserAvatar component some properties to work with, we can achieve it in this way
+E.g. if we want to send to our UserAvatar component some properties to work with, we can do it like this
 
 ```javascript
 // instead of just write this
@@ -423,7 +423,7 @@ E.g. if we want to send to our UserAvatar component some properties to work with
   userPreferences={{maxResults: 3, backgroundColor: '#eaeaea', autoRefresh: false}} />
 ```
 
-**NOTE** I must highlight one thing, just strings can be sent between quotation marks, the other data types must be between brackets.
+**NOTE** I must highlight one thing, just strings can be sent between quotation marks, the other data types must be between brackets. That is because the enclosing brackets evaluate the values within them.
 
 So, we will refactor our UserAvatar component to change our hardcoded to this
 
@@ -439,7 +439,7 @@ class UserAvatar extends React.Component {
 <UserAvatar url="https://dl.dropboxusercontent.com/u/18850435/tutorial/Kermit.png" />
 ```
 
-Also, we change all the harcoded values from react components, and replace them with our new way of passing data
+Also, we change all the harcoded values from React components, replacing them with our new way of passing data
 
 ```javascript
 class UserData extends React.Component {
@@ -485,10 +485,9 @@ class UserProfile extends React.Component {
 }
 ```
 
-As you can see, the URL we want to send to react component is harcoded inside our component. To avoid this, we can
-keep delegating the properties we want to our parent component and so on.
+As you can see, the URL we want to send to React component is harcoded inside our component. To avoid this, we can keep delegating the properties we want to our parent component and so on.
 
-After all the refactor, our code will look like this
+After all the refactor, we can be proud of ourselves an look our code below
 
 ```javascript
 import React from 'react';
@@ -564,13 +563,13 @@ var user = {
 ReactDOM.render(<ExampleApp user={user} />, document.getElementById('example'));
 ```
 
-With this, the parent components can share data with children components. They can send properties to children components, and these will use them as they want.
+With this, the parent components can share data with children components. They can send properties to children components, and these can use them as they want.
 
-**NOTE** The most important thing about props, is they area immutable data. This means, this properties sent by parent components their children **can not modify them**.
+**NOTE** The most important thing about props is they are immutable data. This means, this properties sent by parent components their children **can not modify them**.
 
 ### State
 
-Just using properties, we always be dependent that a parent component gives us all the properties we need. So with this in mind we have some issues
+Just using properties, we always will be dependant that a parent component gives us all the properties we need. So with this in case mind we have some issues
 
 1. What happens when this component does not have a parent component(like ExampleApp) ?
 1. What happens when I want to keep some app state, but props are immutable ?
@@ -582,10 +581,11 @@ With this in mind, we can refactor our ExampleApp component to this one
 ```javascript
 class ExampleApp extends React.Component {
   //to create initial state data we must define a constructor method inside our react component
-  constructor() {
+  constructor(props) {
     //we need to call this function to keep things working as expected
-    super();
+    super(props);
 
+    //this is the state object we can keep our state for this component
     this.state = {
       user: {
         name: 'Kermit the frog',
@@ -610,18 +610,20 @@ ReactDOM.render(<ExampleApp />, document.getElementById('example'));
 The most important thing about state is when it changes, the component will be re rendered,
 to show the new data. When this happens, the parent component will be rendered again and their child as well
 
-To make this happen, we need to call a special method called `setState` and must be used like this
+To make this happen, we need to call a special method called `setState` and must be used as below
 
 ```javascript
+//as an argument, we can send the new state of our app/component
 this.setState(newState);
 ```
 
-when this happens, the component will be re rendered. Now, to show you an example of this, we can add some some to our current code
+When this happens, the component will be ordered to render again. Now, to show you an example of this, we can add a little code here and there to our current codebase.
 
 ```javascript
 class ExampleApp extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
     this.state = {
       user: {
         name: 'Kermit the frog',
@@ -633,11 +635,11 @@ class ExampleApp extends React.Component {
     };
 
     //we simulate a state change after 3.5 secs
-    setTimeout(()=>{
+    setTimeout(() => {
       //to our user property we will assign him a new salary and role
       this.setState({
           user: {
-              //this is part of new syntax of javascript to extend objects
+              //this is part of new syntax proposal of javascript to extend objects
               //like var newObject = $.extend(olderObj, newProperties);
               ...this.state.user,
               salary: '550,000',
