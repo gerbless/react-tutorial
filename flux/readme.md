@@ -593,7 +593,7 @@ Redux besides follows three main principles:
 
 - Application state is stored in just 1 store.
 - The state is just read-only, to make changes in this state it should emit an action explicitly.
-- Any state change inside our store, it must be represented by a completely new object.
+- Any state change inside our store must be represented by a completely new object.
 
 To install redux, we need to type in our console the following command
 
@@ -611,12 +611,15 @@ import { createStore, combineReducers } from 'redux';
 
 As you can see, we are importing two functions ... `createStore` and `combineReducers`, these we will know what they are and what they do later.
 
-Then, we create our reducers, but first we need to know what are reducers. Reducers, are functions that receive
-the former application state as first argument and the triggered action as second argument. Then, they must return the new application state. They have the following restrictions:
+Then, we create our reducers, but first we need to know what are reducers. Reducers, are functions that receive these arguments:
+- the former application state.
+- the triggered action.
+
+Then, they must return the new application state. They have the following restrictions:
 
 - They must be pure functions(they must not alter any element outside of their scope).
 - They must always return the new application state.
-- If our new application state changes, we must return a whole new object for the state. We must not mutate the former one.   
+- If our new application state changes, we must return a whole new object for the state. We must not mutate the previous one.
 
 To apply these restrictions, we will do it through our product catalog:
 
