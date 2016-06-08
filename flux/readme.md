@@ -12,31 +12,30 @@
 
 ![flux-vs-mvc][flux-vs-mvc-source]
 
-To really understand what is the big deal with flux instead of just using MVC as always. Let's understand what MVC means in front-end side.
+To really understand what is the big deal using flux instead of traditional MVC, let's understand what MVC means for front-end side.
 
 
 ## MVC
 
-MVC is a software pattern design that allow us to separate our systems/apps/programs into at least 3 layers that will be described right now
+MVC is a software pattern design that allow us to split our systems/apps/programs into at least 3 layers that will be described right now.
 
-- **Model** is the layer that represents data and business logic inside our software. This layer is commonly
-done in Javascript taking a JSON object as a store or using an indexed db in browser side.
-- **View** is the layer that represents data to user in a meaningful way. Also, this layer is responsible to react to user interactions creating actions.
+- **Model** is the layer that represents business data and business logic inside our software. This layer is commonly done in Javascript, taking a JSON object as a store or using an indexed db in browser side.
+- **View** is the layer that represents the data to users in a meaningful way. Also, this layer is responsible to handle user interactions creating actions.
 - **Controller** this layer is responsible to bind view actions to make updates directly to our model in a secure way. Also, all the changes done in model layer can be abstracted in this layer to send this info to view layer.
 
-As you can see, this representation of MVC differs a little from original back-end side version of MVC. This is because in front-end side, all these layers have a little blurry line between them. It is too common that this separation can be easily forgotten.
+As you can see, this representation of MVC differs a little from original back-end side version of MVC. This is because in front-end side, all these layers have a little blurry line between them. That's why it's difficult to apply pure MVC in frontend.
 
-So, for these cases in front-end we have alternatives to pure version of MVC, they are called MV* versions. In these versions, our MV* can be represented as MVC(model-view-controller), MVVM(model-view-viewmodel) and so on.
+Thus, for these cases in front-end we have alternatives to pure version of MVC. They are called MV* versions. These can be represented as MVC(model-view-controller), MVVM(model-view-viewmodel) and so on.
 
 Just to show you an example of this, we can see this picture to understand best
 
 ![mvc-1][mvc-source-0]
 
-It is important to say, that some frameworks like Angular and Ember to make things simpler, they offer to do a big step creating two-way data binding. This, allow us to synchronize our view updates directly into model and viceversa.
+It is important to say which frameworks like Angular, to make things simpler, they offer to do a big step creating two-way data binding. This allow us to synchronize our view updates directly into model and viceversa.
 
-However, when apps grew bigger, this approach can give us some headaches trying to figure out what race condition is being triggered after few actions.
+However, when apps grew bigger, this approach can give us some headaches trying to figure out which race condition is being triggered after few actions between multiple views.
 
-To demonstrate what i am saying, let me show you this(this picture represents perfectly what I have to live some time ago).
+To demonstrate what I am saying here, let me show you this(this picture represents perfectly what I have to live some time ago).
 
 ![mvc-nightmare][mvc-source-1]
 
@@ -45,13 +44,13 @@ To demonstrate what i am saying, let me show you this(this picture represents pe
 
 For the opposite side, facebook created flux as a software design pattern to deal with this problem.
 
-These are the parts compose Flux architecture:
+These are the parts which compose Flux architecture:
 
 - **Action / Action creator** This is responsible to represent what type of action we are doing in the app,
 E.g.: adding a product to a shopping cart, press play button to watch a video, etc.
-- **Dispatcher** This is responsible to receive our actions and it have to deal to send these actions to all stores that are registered here(you might compare it with our C part of MVC).
-- **Store** We might call it our model part. In this section, we hold all our data, but unlikely model, stores can represent more than just 1 type of data. So, it is more flexible and old models.
-- **View** This represents the View as we now.
+- **Dispatcher** This is responsible to receive our actions and pass them to the stores which are registered here(you might compare it with our C part of MVC).
+- **Store** We might call it our "model" part. In this section, we hold all our data, but unlikely model, stores can represent more than just 1 type of data. So, it is more flexible than a model.
+- **View** This represents the View as we know.
 
 To understand what is this representation in a picture, let me show you this
 
@@ -60,9 +59,9 @@ To understand what is this representation in a picture, let me show you this
 
 ## Flux implementation by Facebook
 
-To make things as simple as possible, we will not use modules to keep components separated at all. Instead, we will use the module pattern to encapsulate our inner implementation from public interface.
+To make things as simple as possible, we will not use modules to keep components separated at all. Instead, we are going to use the module pattern to encapsulate our inner implementation from public interface.
 
-If you do not know about which software design patterns are commonly used in Javascript, you can visit this link to learn about [JAVASCRIPT DESIGN PATTERNS][javascript-design-patterns-source]
+If you do not know about which software design patterns are commonly used in Javascript, you can visit this link to learn about [JAVASCRIPT DESIGN PATTERNS][javascript-design-patterns-source].
 
 Our very first step is import all the dependencies that we will need
 
@@ -98,7 +97,7 @@ const flux = (() => {
 })();
 ```
 
-Them, we code the action creators, responsible of emit the action we want to trigger:
+Then, we code the action creators, responsible of emiting the actions we want to trigger:
 
 ```javascript
 
@@ -121,15 +120,12 @@ const actions = (() => {
         actionType: 'ADD_PRODUCT',
         product
       });
-    },
-    removeProduct(index){
-      //just in case we need to implement it later
     }
   };
 })();
 ```
 
-Next step is our own implementation of store:
+The next step is our own implementation of store:
 
 ```javascript
 //this will be our event we will be listening to emit changes and responding to changes
@@ -137,8 +133,8 @@ const CHANGE_EVENT = 'change';
 
 //our flux store
 const store = (() => {
-  //catalog products
-  var catalogProducts = [];
+  //products catalog
+  var productsCatalog = [];
 
   //shopping cart products
   var basketItems = [];
@@ -147,7 +143,7 @@ const store = (() => {
   const addProduct = product => basketItems.push(product);
 
   //with this function we will replenish all the products to our catalog
-  const addProducts = products => catalogProducts = products;
+  const addProducts = products => productsCatalog = products;
 
   //we extend the original EventEmitter to make it as a store
   const Store = {
@@ -162,7 +158,7 @@ const store = (() => {
       this.removeListener(callback);
     },
     getProducts(){
-      return catalogProducts;
+      return productsCatalog;
     },
     getBasketItems(){
       return basketItems;
@@ -187,7 +183,7 @@ const store = (() => {
 })();
 ```
 
-Now, we need to create all our components we will use
+Now, we need to create all our components we are going to use
 
 ```javascript
 
@@ -342,13 +338,13 @@ const actions = (() => {
 const CHANGE_EVENT = 'change';
 
 const store = (() => {
-  var catalogProducts = [];
+  var productsCatalog = [];
 
   var basketItems = [];
 
   const addProduct = product => basketItems.push(product);
 
-  const addProducts = products => catalogProducts = products;
+  const addProducts = products => productsCatalog = products;
 
   const Store = {
     ...EventEmitter.prototype,
@@ -362,7 +358,7 @@ const store = (() => {
       this.removeListener(callback);
     },
     getProducts(){
-      return catalogProducts;
+      return productsCatalog;
     },
     getBasketItems(){
       return basketItems;
@@ -479,7 +475,7 @@ $.get('/data.json', function(products){
 });
 ```
 
-our CSS should be like this
+And of course, the CSS that we are going to use
 
 ```css
 .u-center{
