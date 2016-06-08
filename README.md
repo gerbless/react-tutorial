@@ -652,17 +652,17 @@ class ExampleApp extends React.Component {
 
 With this, we can store internal state to our app, and also we can send properties to our child components.
 
+
 ## Event handling
 
-When we want to handle some event over a react component, we can achieve that without effort. To catch events in react they must be written in this way
+When we want to handle some event over a React component, we can achieve that without effort. To handle events in ReactJS, they must be written in this way
 
 ```javascript
 //each event must be written in camelcase
 <UserAvatar onClick={eventHandler} onMouseOver={anotherEventHandler} />
 ```
 
-To add this to our former example, we can catch when some user presses avatar image, this action will display
-an alert which notify that action to our user.
+To add this to our former example, we can catch when some user presses avatar image, this action will display an alert which notify that action to our user.
 
 ```javascript
 class UserAvatar extends React.Component {
@@ -678,13 +678,14 @@ class UserAvatar extends React.Component {
 }
 ```
 
-The, when our user pressed the avatar images it will activate the alert. It is important to mention here, that we can also create event that children components will take and do something.
+The, when our user pressed the avatar images it will activate the alert. It is important to mention here, that we can also create event that children components can receive and do something.
 
 Following the same example above, we can also achieve that in this way(the other code will be omitted by the sake of brevity)
 
 ```javascript
 class UserAvatar extends React.Component {
   render() {
+    //here, we receive from our props the onClick event we want to trigger
     return <img src={this.props.url} onClick={this.props.onClick} />;
   }
 }
@@ -723,11 +724,12 @@ class ExampleApp extends React.Component {
   }
 ```
 
+
 ## Modules
 
-Each time we add new react components or new features to our codebase, our single file will be growing bigger and so on. This in some point will make our code hard to maintain and hard to make refactors and changes.
+Each time we add new React components or new features to our codebase, our single file will be growing bigger and so on. This in some point will make our code hard to maintain and hard to make refactors and changes.
 
-To solve this issue, with the new Javascript version we can use modules just like other languages do. This allow us split our code to smaller pieces and keep them as reusable as they can.
+To solve this issue, with the new Javascript version, we can use modules just like other languages do. This allow us split our code to smaller pieces and keep them as reusable as they can.
 
 Let's return to our working example
 
@@ -826,13 +828,13 @@ Then we will create the following files inside it.
 - UserProfile.js
 - ExampleApp.js
 
-Then we will copy our UserAvatar component in UserAvatar.js file, then we can delete the code from main.js. The same steps we need to repeat with UserData and UserProfile
+Then we will copy our UserAvatar component in UserAvatar.js file, then we can delete the code from main.js. We need to repeat those steps with UserData and UserProfile.
 
 After this, if we try to run the same code, we will get the following error:
 
 ![error][screen04]
 
-This occurs because now our app is split into multiple files. To make our example running as before, we need to refactor a little bit these files.
+This occurs because now our app is split into multiple files and we are not importing the code properly. To make our example run as before, we need to refactor a just little bit these files.
 
 So, we will begin with our UserAvatar.js file
 
@@ -853,7 +855,7 @@ export default UserAvatar;
 
 The one thing we can notice is we are adding the sentence `export default UserAvatar`. This is necessary to indicate that our UserAvatar component can be imported by other modules.
 
-We do this same task inside UserProfile and UserData. Now, inside main.js code will be written like this
+We do this same task inside UserProfile and UserData. Now, inside main.js code will be written like this:
 
 ```javascript
 import React from 'react';
@@ -892,8 +894,7 @@ If we do this in our code, then in browser's console will output an error like t
 
 ![error][screen05]
 
-This happens because in our module we do not have defined any dependency in it. In this case, we need to load
-React to use it. So, to import this dependency, we need to add just one more line to accomplish that
+This happens because in our module we do not have defined any dependency in it. In this case, we need to load ReactJS to use it. So, to import this dependency, we need to add just one more line to accomplish that
 
 ```javascript
 //this is the line we are adding to load react dependency
@@ -932,7 +933,7 @@ After this, we can see how our react example will behave as before.
 
 ![screen][screen02]
 
-Now, the one task left here is to copy our ExampleApp component into ExampleApp.js, if we do this, the code in ExampleApp.js will look like this
+Now, the one task left here is to copy our ExampleApp component into ExampleApp.js. If we do this, the code in ExampleApp.js will look as below
 
 ```javascript
 import React from 'react';
@@ -951,10 +952,14 @@ class ExampleApp extends React.Component {
       }
     };
 
-    //simulamos un cambio de estado luego de 3,5 segundos
     setTimeout(()=>{
-      //a nuestro usuario le asignamos un nuevo sueldo y un nuevo rol dentro de la empresa
-      this.setState({user:{...this.state.user, salary: '550,000', role: 'president'}});
+      this.setState({
+          user: {
+              ...this.state.user,
+              salary: '550,000',
+              role: 'president'
+          }
+      });
     }, 3500);
   }
 
@@ -980,8 +985,7 @@ Now, this error will be displayed in our console
 
 ![screen][screen06]
 
-Please do not be afraid, this occurs because we have forgotten to change the import route of UserProfile component
-in ExampleApp.js, so we need to refactor it
+Please do not be afraid, this occurs because we have forgotten to change the import route of UserProfile component in ExampleApp.js, so we need to refactor it
 
 ```javascript
 import React from 'react';
@@ -1016,7 +1020,7 @@ class ExampleApp extends React.Component {
 export default ExampleApp;
 ```
 
-Finally, our code should look like this
+Finally, our entire codebase should be this
 
 ```javascript
 /********** UserAvatar.js **********/
@@ -1114,8 +1118,14 @@ class ExampleApp extends React.Component {
       }
     };
 
-    setTimeout(()=>{
-      this.setState({user:{...this.state.user, salary: '550,000', role: 'president'}});
+    setTimeout(() => {
+      this.setState({
+          user:{
+              ...this.state.user,
+              salary: '550,000',
+              role: 'president'
+          }
+      });
     }, 3500);
   }
 
@@ -1137,35 +1147,35 @@ ReactDOM.render(<ExampleApp />, document.getElementById('example'));
 /********** main.js **********/
 ```
 
-The project structure should look similar to this image below
+The project structure should look similar to this picture below
 
 ![structure][screen07]
 
 
 ## Real example
 
-Until now, we have done some basic examples to understand how react works. This time, we are going to create a real example with a real use case.
+Until now, we have done some basic examples to understand how ReactJS works. This time, we are going to create a real example with a real use case.
 
-We will create a Flickr search term which allow us to find photos related to search terms.
+We will create a Flickr search term which allow us to find photos related to search terms(It's pretty easy to do this with all the stuff we know already).
 
 - We need to use jQuery.js or Zepto.js to manage AJAX calls
 - This library has to be included in index.html
 
-The HTML code should look like this
+The HTML code should look as below
 
 ![screen09][screen09]
 
-We will follow the main idea about create multiple react components. So, in this case we need to create
+We will follow the main idea about create multiple React components. So, in this case we need to create
 several Javascript files to achieve that:
 
 - services: we save all the logic to make AJAX calls to server side and to create correct URL.
-- FlickrImage: responsible for showing the retrieved image
-- ImageGallery: component that holds a FlickImage list to show to us
-- SearchTermContainer: component with the search term input and action button to begin search
-- FlickrApp: Wrapper holding everything else
+- FlickrImage: responsible for showing the retrieved image.
+- ImageGallery: component that holds a FlickImage list to show to us.
+- SearchTermContainer: component with the search term input and action button to begin search.
+- FlickrApp: Wrapper holding everything else.
 
 
-First of all, we will write all the needed logic to create AJAX calls in services.js
+First of all, we are going to write all the needed logic to create AJAX calls in services.js
 
 ```javascript
 //function that allow us to create the correct URL according to search term
@@ -1177,8 +1187,8 @@ const url = searchTerm => (
 export const findPhotosByTerm = (searchTerm, cb) => $.get(url(searchTerm), cb);
 ```
 
-So, when we create a ajax call searching for kitties, the created URL for that term should be similar to this:
-`https://api.flickr.com/services/feeds/photos_public.gne?tags=kitties&format=json&&jsoncallback=?`
+So, when we create a ajax call searching for **cats**, the created URL for that term should be similar to this:
+`https://api.flickr.com/services/feeds/photos_public.gne?tags=cat&format=json&&jsoncallback=?`
 
 After this, we will create the code for FlickrImage component
 
@@ -1191,7 +1201,7 @@ import React from 'react';
  **/
 class FlickrImage extends React.Component {
   render() {
-    return <img src={this.props.url} />
+    return <img src={this.props.url} />;
   }
 }
 
@@ -1288,9 +1298,12 @@ class FlickrApp extends React.Component {
 export default FlickrApp;
 ```
 
-Finally, we should get something similar to this:
+Finally, we should get this:
 
 ![screen][screen08]
+
+As you can see, the code above is pretty simple and straightforward. This code it's just an example for doing anything that we want to do with ReactJS.
+
 
 ## Flux vs MVC
 
