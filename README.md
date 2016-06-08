@@ -37,14 +37,14 @@ All technologies have pros and cons, react is not an exception, so you must know
 
 - **Pros**
     - It is just a library, not a framework, so it is easier to learn than other Javascript approaches.
-    - Fixing bugs is easier than you thought.
-    - It can be easily integrated with other libraries such as jQuery, Bootstrap, moment, Lodash, etc.
-    - You do not need to make changes in your HTML code, react does the heavy lift for you.
+    - Fixing bugs is easier than you would think.
+    - It can be easily integrated with other libraries such as jQuery, Bootstrap, Moment, Lodash, etc.
+    - You do not need to handle DOM manipulations in your code, ReactJS does the heavy lift for you.
 - **Cons**
     - It requires a deeper Javascript understanding.
     - The ReactJS ecosystem is not as easy to install as jQuery.
     - It can be haunting at first sight.
-    - It is need to compile React applications.
+    - It is need to compile ReactJS applications.
     - You must use the command line tool.
 
 ## Preparing the Environment
@@ -64,9 +64,9 @@ $ v5.3.0
 ```
 
 This should appear in response to your command, the version number might be a little different, but that is fine.
-The next step is to create all the environment we will use, so to prepare it, please download this script to create all the necessary dependencies: [LINK][react-essential-setup-source] (this script has to be run within unix terminal like osx or linux)
+The next step is to create all the environment we will use, so to prepare it, please download this script to create all the necessary dependencies: [LINK][react-essential-setup-source] (this script has to be run within unix terminal like OSX or linux)
 
-**NOTE** This script only works within Linux and OSX environments, if you need this script can be run under windows, please download GIT for windows from https://git-scm.com/downloads . This will create a mini unix environment to work with GIT and some unix commands
+**NOTE** This script only works within Linux and OSX environments, if you need this script can be run under windows, please download GIT for windows from https://git-scm.com/downloads . This will create a mini "unix" environment to work with GIT and some unix commands
 
 we can run this code just typing in terminal(after decompressing the file and moving ourselves into the directory folder)
 
@@ -81,12 +81,12 @@ This will download all the project dependencies needed by this tutorial. Once fi
 
 ## Environment description
 
-To work with ReactJS is not as easy as jQuery, because we need some tools to do some special things, each of these tools will be described
+To work with ReactJS is not as easy as jQuery, because we need some tools to do some special things, each of these tools will be described below:
 
-- **Babel** It is a compiling tool that allow us to use latest features of Javascript in older environment.
+- **Babel** It is a compiling tool that allow us to use latest features of Javascript and compiles it to proper ES5 code.
 - **Webpack / Browserify** These tools are module bundlers, they allow us to split our code in many files, keeping our code tidy. Then they will join all these files and compress in just 1 file.
 - **JSX** JSX is a special syntax that help us to create HTML markup inside Javascript code.
-- **Gulp** This is a tool that allow us to automate repetitive task such as compressing images, CSS preprocessing, linting code, etc.
+- **Gulp** This is a tool that allow us to automate repetitive tasks such as compressing images, CSS preprocessing, linting code, etc.
 
 
 ## My first component
@@ -142,12 +142,12 @@ To attach this component in our DOM we need this line to achieve this
 ```javascript
 /*
   - the first sent argument, is our react component we want to render in DOM.
-  - the second one, is the HTML node which will be our host element to render the react component.
+  - the second one, is the HTML node which will be our host element to render the React component.
 */
 ReactDOM.render(<ExampleApp />, document.getElementById('example'));
 ```
 
-Finally, our first example will be similar to this
+Finally, our first example should be similar to this
 
 ```javascript
 import React from 'react';
@@ -163,11 +163,11 @@ ReactDOM.render(<ExampleApp />, document.getElementById('example'));
 
 ```
 
-This is our first React component, this should be similar to this in your screen
+This is our first React component, this should look like this in your screen
 
 ![screen][screen12]
 
-If you have installed react developer tools, you should see in it something like this
+If you have installed react developer tools, you should see these properties in that tab
 
 ![screen][screen13]
 
@@ -177,13 +177,13 @@ If you noticed in HTML example, an important thing to highlight is the following
 <div data-reactid=".0">This is my first react component</div>
 ```
 
-The `data-reactid=.0` attribute is for internal use, React uses it to identify this element as a react component. This one must be a read-only attribute to us.
+The `data-reactid=.0` attribute is for internal use, ReactJS uses it to identify this element as a react component. This one must be a read-only attribute to us.
 
 ## Thinking in components
 
-One of main purposes of react is to split HTML into many reusable components. So for the next exercise, we will follow this principle.
+One of main purposes of ReactJS is to split HTML into many reusable components. So for the next exercise, we will follow this principle.
 
-We will create an user profile with username kermit and we need this requirements to accomplish.
+We will create an user profile and we need this requirements to accomplish.
 
 - [x] User Name
 - [x] User Role
@@ -191,11 +191,12 @@ We will create an user profile with username kermit and we need this requirement
 - [x] User Avatar
 - [x] User Biography
 
-We could do this just writing one react component, but as mentioned before, we should split all this into multiple react components. So let gets started
+We could do this just writing one React component, but as mentioned before, we should split all this HTML code into multiple React components. So let's start
 
 First, we will create an user profile component
 
 ```javascript
+//this is our draft to begin to work with
 class UserProfile extends React.Component {
   render(){
     return (
@@ -216,9 +217,9 @@ class UserProfile extends React.Component {
 }
 ```
 
-With this, our component will have all the necessary stuff to accomplish our requirements. If you notice here, to assign CSS classes to a react component, you should assign them in className attribute. This is because `class` keyword is a reserved word in Javascript world.
+With this, our component will have all the necessary stuff to accomplish our requirements. If you notice here, to assign CSS classes to a React component, you should assign them in className attribute. This is because `class` keyword is a reserved word in Javascript.
 
-Next step is create an user avatar component
+The next step is create an user avatar component
 
 ```javascript
 class UserAvatar extends React.Component {
@@ -265,11 +266,11 @@ class UserProfile extends React.Component {
         <h3>User Profile</h3>
         <div>
           <div className="UserProfile-container">
-            <!-- UserAvatar component added here -->
+            {/* this is where we are putting the UserAvatar component we have just created */}
             <UserAvatar />
           </div>
           <div className="UserProfile-container">
-            <!-- UserData component added here -->
+            {/* this is where we are putting the UserData component we have just created */}
             <UserData />
           </div>
         </div>
@@ -280,7 +281,7 @@ class UserProfile extends React.Component {
 }
 ```
 
-Then, we can replace former content of App component in this way
+The, we can refactor the former code inside ExampleApp Component with this unique component
 
 ```javascript
 class ExampleApp extends React.Component {
@@ -290,7 +291,7 @@ class ExampleApp extends React.Component {
 }
 ```
 
-Finally, our code will look like this
+Finally, our complete example for the code is going to be similar to this
 
 ```javascript
 import React from 'react';
@@ -354,7 +355,7 @@ ReactDOM.render(<ExampleApp />, document.getElementById('example'));
 
 ```
 
-To create some CSS styling for this example, we will use SuitCSS style guides to create CSS code. If you want to know more about suitcss please follow this link http://suitcss.github.io
+If you want to know, obviously we can add some styles to these components, we are going to use SuitCSS style guides to create our CSS code. If you want to know more about SuitCSS please follow this link http://suitcss.github.io
 
 ```css
 .UserProfile{
@@ -388,7 +389,7 @@ now, save this file as styles.css under project folder. We only need to add it w
 </head>
 ```
 
-Now, our example should be similar to this
+Now, with the CSS created, this former example should look as below
 
 ![component][screen02]
 
@@ -396,7 +397,7 @@ The HTML code in chrome should be similar to this too
 
 ![html][screen03]
 
-The most important thing here, is to keep our component as small as possible. With this in mind, we can reuse them anywhere we want.
+The most important thing here, is to keep our components as small as possible. With this in mind, we can reuse them anywhere we want.
 
 
 ## Props and States
