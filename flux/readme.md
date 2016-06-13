@@ -97,7 +97,7 @@ const flux = (() => {
 })();
 ```
 
-Then, we code the action creators, responsible of emiting the actions we want to trigger:
+Then, we code the action creators, responsible of emitting the actions we want to trigger:
 
 ```javascript
 
@@ -536,7 +536,7 @@ And of course, the CSS that we are going to use
 }
 ```
 
-Then, our json data should be something like this
+Then, our json data should look like this
 
 ```json
 [
@@ -941,7 +941,7 @@ class ReduxApp extends React.Component {
 ReactDOM.render(<ReduxApp />, document.getElementById('example'));
 
 $.get('/data.json', function(products){
-  store.dispatch({ type: 'ADD_PRODUCTS', products});
+  store.dispatch({type: 'ADD_PRODUCTS', products});
 });
 ```
 
