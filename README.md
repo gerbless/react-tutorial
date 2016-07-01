@@ -805,9 +805,9 @@ class ExampleApp extends React.Component {
       }
     };
 
-    //simulamos un cambio de estado luego de 3,5 segundos
+    //we simulate a state change after 3.5 seconds
     setTimeout(()=>{
-      //a nuestro usuario le asignamos un nuevo sueldo y un nuevo rol dentro de la empresa
+      //to our user we are going to assign him a new salary and a new role in the company
       this.setState({user:{...this.state.user, salary: '550,000', role: 'president'}});
     }, 3500);
   }

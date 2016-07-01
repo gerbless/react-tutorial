@@ -39,7 +39,7 @@ gulp.task(taskName, callback);
 So, with this short brief, we can start to create a gulp task as an example. We will create a task that can copy to a dist folder the following files:
 
 - styles.css
-- jquery.min.js ( or zepto if we installed it)
+- jquery.min.js (or zepto if we have installed it)
 
 ```javascript
 var gulp = require('gulp');
