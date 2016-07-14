@@ -862,7 +862,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // here we import our component from a module
 // import ComponentName from 'relativePath';
-import UserProfile from './components/UserProfile';
+import UserProfile from '../components/UserProfile';
 
 class ExampleApp extends React.Component {
   constructor() {
@@ -976,7 +976,7 @@ When we finish this task, our main.js file should be like this one
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ExampleApp from './components/ExampleApp';
+import ExampleApp from './static/js/components/ExampleApp';
 
 ReactDOM.render(<ExampleApp />, document.getElementById('example'));
 ```
@@ -1103,7 +1103,7 @@ export default UserProfile;
 
 /********** ExampleApp.js **********/
 import React from 'react';
-import UserProfile from './UserProfile';
+import UserProfile from '../components/UserProfile';
 
 class ExampleApp extends React.Component {
   constructor() {
@@ -1141,7 +1141,7 @@ export default ExampleApp;
 /********** main.js **********/
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ExampleApp from './components/ExampleApp';
+import ExampleApp from './static/js/apps/ExampleApp';
 
 ReactDOM.render(<ExampleApp />, document.getElementById('example'));
 /********** main.js **********/
