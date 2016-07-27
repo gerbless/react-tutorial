@@ -845,16 +845,16 @@ function productCatalog(state = [], action){
 }
 
 function shoppingCart(state = [], action){
+  console.warn('action', action);
+
   switch(action.type){
     case 'ADD_PRODUCT':
       return [...state, action.product];
     case 'REMOVE_PRODUCT':
-      return {
-        products: [
+      return [
           ...state.slice(0, action.index),
           ...state.slice(action.index + 1)
-        ]
-      };
+        ];
     default:
       return state;
   }
@@ -895,24 +895,37 @@ const Item = props => (
     <div><ProductImage URL={props.imageURL} /></div>
     <div>Product ID: {props.id}</div>
     <div>Trademark: {props.trademark}</div>
+    <div className="u-center">
+      <button onClick={props.onClick}>remove from cart</button>
+    </div>
   </div>
 );
 
 const Basket = props => (
   <div>
     <h4>Items in basket</h4>
-    {props.products.map((product, index) => <Item key={index} {...product} />)}
+    {props.products.map((product, index) => <Item key={index} {...product} onClick={props.removeCart(index)} />)}
   </div>
 );
 
 class ReduxApp extends React.Component {
-  constructor(){
-    super();
-    store.subscribe(this.reRender.bind(this));
+  constructor(props){
+    super(props);
+    this.state = {
+      basketProducts: [],
+      catalogProducts: []
+    };
   }
 
-  reRender(){
-    this.forceUpdate();
+  componentWillMount(){
+    store.subscribe(this.onStoreChange.bind(this));
+  }
+
+  onStoreChange(){
+    const basketProducts = store.getState().shoppingCart;
+    const catalogProducts = store.getState().productCatalog;
+
+    this.setState({basketProducts, catalogProducts});
   }
 
   addToCart(props) {
@@ -924,15 +937,18 @@ class ReduxApp extends React.Component {
     };
   }
 
-  render() {
-    const basketProducts = store.getState().shoppingCart;
-    const catalogProducts = store.getState().productCatalog;
+  removeCart(index){
+    return function(){
+      store.dispatch({ index, type: 'REMOVE_PRODUCT' });
+    };
+  }
 
+  render() {
     return (
       <div>
-        <Basket products={basketProducts} />
+        <Basket products={this.state.basketProducts} removeCart={this.removeCart} />
         <h3>Product List</h3>
-        <ProductList products={catalogProducts} addToCart={this.addToCart} />
+        <ProductList products={this.state.catalogProducts} addToCart={this.addToCart} />
       </div>
     );
   }
@@ -943,6 +959,7 @@ ReactDOM.render(<ReduxApp />, document.getElementById('example'));
 $.get('/data.json', function(products){
   store.dispatch({type: 'ADD_PRODUCTS', products});
 });
+
 ```
 
 We are going to use the same CSS used in facebook flux. So, in this case the application should behave as before
