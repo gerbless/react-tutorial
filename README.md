@@ -385,7 +385,7 @@ now, save this file as styles.css under project folder. We only need to add it w
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>My React BoilerPlate</title>
   <!-- here we will add our stylesheet -->
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/static/css/styles.css" />
 </head>
 ```
 
