@@ -1357,7 +1357,7 @@ Objects, how they work in Javascript with the Prototypal inheritance, link below
 
 [es-syntax-source]:http://es6-features.org/#Constants
 [react-developer-tools]:https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?utm_source=chrome-app-launcher-info-dialog
-[node-js-source]:https://nodejs.org/en/download/stable/
+[node-js-source]:https://nodejs.org/dist/v6.9.2/node-v6.9.2-x64.msi
 [react-essential-setup-source]:https://gist.github.com/aether7/05a8ece21ae6775ce8d6
 [screen01]:images/screen01.png
 [screen02]:images/screen02.png
