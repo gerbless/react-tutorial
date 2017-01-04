@@ -224,7 +224,7 @@ The next step is create an user avatar component
 ```javascript
 class UserAvatar extends React.Component {
   render() {
-    return <img src="https://dl.dropboxusercontent.com/u/18850435/tutorial/Kermit.png" />;
+    return <img src="https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg" />;
   }
 }
 ```
@@ -299,7 +299,7 @@ import ReactDOM from 'react-dom';
 
 class UserAvatar extends React.Component {
   render() {
-    return <img src="https://dl.dropboxusercontent.com/u/18850435/tutorial/Kermit.png" />;
+    return <img src="https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg" />;
   }
 }
 
@@ -416,7 +416,7 @@ E.g. if we want to send to our UserAvatar component some properties to work with
 
 // we send attributes that can be used in a react component
 <UserAvatar
-  url="https://dl.dropboxusercontent.com/u/18850435/tutorial/Kermit.png"
+  url="https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg"
   age={21}
   hidden={false}
   suggestions={['cats', 'lemon', 'rain', 'soccer', 'beach']}
@@ -436,7 +436,7 @@ class UserAvatar extends React.Component {
 }
 
 //then we can send it the right url via url attribute
-<UserAvatar url="https://dl.dropboxusercontent.com/u/18850435/tutorial/Kermit.png" />
+<UserAvatar url="https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg" />
 ```
 
 Also, we change all the harcoded values from React components, replacing them with our new way of passing data
@@ -472,7 +472,7 @@ class UserProfile extends React.Component {
         <h3>User Profile</h3>
         <div>
           <div className="UserProfile-container">
-            <UserAvatar url="https://dl.dropboxusercontent.com/u/18850435/tutorial/Kermit.png" />
+            <UserAvatar url="https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg" />
           </div>
           <div className="UserProfile-container">
             <UserData />
@@ -555,7 +555,7 @@ var user = {
   role: 'CEO',
   salary: '250,000',
   description: 'This is kermit, our CEO',
-  avatarURL: 'https://dl.dropboxusercontent.com/u/18850435/tutorial/Kermit.png'
+  avatarURL: 'https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg'
 };
 
 //we have delegated all the properties to our root component
@@ -592,7 +592,7 @@ class ExampleApp extends React.Component {
         role: 'CEO',
         salary: '250,000',
         description: 'This is kermit, our CEO',
-        avatarURL: 'https://dl.dropboxusercontent.com/u/18850435/tutorial/Kermit.png'
+        avatarURL: 'https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg'
       }
     };
   }
@@ -630,7 +630,7 @@ class ExampleApp extends React.Component {
         role: 'CEO',
         salary: '250,000',
         description: 'This is kermit, our CEO',
-        avatarURL: 'https://dl.dropboxusercontent.com/u/18850435/tutorial/Kermit.png'
+        avatarURL: 'https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg'
       }
     };
 
@@ -801,7 +801,7 @@ class ExampleApp extends React.Component {
         role: 'CEO',
         salary: '250,000',
         description: 'This is kermit, our CEO',
-        avatarURL: 'https://dl.dropboxusercontent.com/u/18850435/tutorial/Kermit.png'
+        avatarURL: 'https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg'
       }
     };
 
@@ -873,7 +873,7 @@ class ExampleApp extends React.Component {
         role: 'CEO',
         salary: '250,000',
         description: 'This is kermit, our CEO',
-        avatarURL: 'https://dl.dropboxusercontent.com/u/18850435/tutorial/Kermit.png'
+        avatarURL: 'https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg'
       }
     };
 
@@ -948,7 +948,7 @@ class ExampleApp extends React.Component {
         role: 'CEO',
         salary: '250,000',
         description: 'This is kermit, our CEO',
-        avatarURL: 'https://dl.dropboxusercontent.com/u/18850435/tutorial/Kermit.png'
+        avatarURL: 'https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg'
       }
     };
 
@@ -1003,7 +1003,7 @@ class ExampleApp extends React.Component {
         role: 'CEO',
         salary: '250,000',
         description: 'This is kermit, our CEO',
-        avatarURL: 'https://dl.dropboxusercontent.com/u/18850435/tutorial/Kermit.png'
+        avatarURL: 'https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg'
       }
     };
 
@@ -1114,7 +1114,7 @@ class ExampleApp extends React.Component {
         role: 'CEO',
         salary: '250,000',
         description: 'This is kermit, our CEO',
-        avatarURL: 'https://dl.dropboxusercontent.com/u/18850435/tutorial/Kermit.png'
+        avatarURL: 'https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg'
       }
     };
 
