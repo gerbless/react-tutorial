@@ -60,18 +60,16 @@ Then we need to install node in our PC, if you have done that already, please ta
 
 ```shell
 $ node --version
-$ v5.3.0
+$ v8.2.1
 ```
 
 This should appear in response to your command, the version number might be a little different, but that is fine.
-The next step is to create all the environment we will use, so to prepare it, please download this script to create all the necessary dependencies: [LINK][react-essential-setup-source] (this script has to be run within unix terminal like OSX or linux)
+The next step is to create all the environment we will use, so to prepare it, please download this script to create all the necessary dependencies: [LINK][react-essential-setup-source]
 
-**NOTE** This script only works within Linux and OSX environments, if you need this script can be run under windows, please download GIT for windows from https://git-scm.com/downloads . This will create a mini "unix" environment to work with GIT and some unix commands
-
-we can run this code just typing in terminal(after decompressing the file and moving ourselves into the directory folder)
+we can run this code just typing in terminal(after downloading file and moving it with ourselves into the directory folder)
 
 ```shell
-$ sh startup.sh
+$ node boot.js
 ```
 
 This will download all the project dependencies needed by this tutorial. Once finished, the project structure will be similar to this
@@ -1358,7 +1356,7 @@ Objects, how they work in Javascript with the Prototypal inheritance, link below
 [es-syntax-source]:http://es6-features.org/#Constants
 [react-developer-tools]:https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?utm_source=chrome-app-launcher-info-dialog
 [node-js-source]:https://nodejs.org/dist/v6.9.2/node-v6.9.2-x64.msi
-[react-essential-setup-source]:https://gist.github.com/aether7/80c820eb51d5abfe8b90b576099318ec
+[react-essential-setup-source]:boot.js
 [screen01]:images/screen01.png
 [screen02]:images/screen02.png
 [screen03]:images/screen03.png
