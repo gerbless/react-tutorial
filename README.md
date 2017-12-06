@@ -2,7 +2,6 @@
 
 1. [ES2015 Syntax](#es2015-syntax)
 1. [What is React](#what-is-react)
-1. [Pros vs Cons](#pros-vs-cons)
 1. [Preparing the Environment](#preparing-the-environment)
 1. [Environment description](#environment-description)
 1. [My first component](#my-first-component)
@@ -31,39 +30,25 @@ All the examples shown here are written using the new ES6/ES2015 syntax, if you 
 ReactJS is a Javascript library created by facebook. It is used to create UI components for a web application.
 A calendar, a slider, a countdown timer, all these examples can be done via ReactJS.
 
-## Pros vs Cons
-
-All technologies have pros and cons, react is not an exception, so you must know what are they:
-
-- **Pros**
-    - It is just a library, not a framework, so it is easier to learn than other Javascript approaches.
-    - Fixing bugs is easier than you would think.
-    - It can be easily integrated with other libraries such as jQuery, Bootstrap, Moment, Lodash, etc.
-    - You do not need to handle DOM manipulations in your code, ReactJS does the heavy lift for you.
-- **Cons**
-    - It requires a deeper Javascript understanding.
-    - The ReactJS ecosystem is not as easy to install as jQuery.
-    - It can be haunting at first sight.
-    - It is need to compile ReactJS applications.
-    - You must use the command line tool.
-
 ## Preparing the Environment
 
-For this tutorial, and for most use cases, I recommend you Atom, which is the text editor created by github staff, to download it you can visit https://atom.io/
+For this tutorial and for most use cases, I recommend you Atom or VSCode, which are good options to code with React and javascript in general. You can download them in the links below:
+
+- https://atom.io/
+- https://code.visualstudio.com/
 
 Also, we will do all these examples in google chrome and react developer tools extension, you can found it right here
 [Chrome React developer tools][react-developer-tools]
 
-To use react, the first thing we will do is download nodeJS, the link to download it is right here [NodeJS][node-js-source]
+To use ReactJS, the first thing we will do is download nodeJS, the link to download it is right here [NodeJS][node-js-source]
 
-Then we need to install node in our PC, if you have done that already, please take the terminal prompt to check it:
+Then we need to install node in our PC, if you have done that already, please take the terminal prompt to check it (the version should be greater now):
 
 ```shell
 $ node --version
 $ v8.2.1
 ```
 
-This should appear in response to your command, the version number might be a little different, but that is fine.
 The next step is to create all the environment we will use, so to prepare it, please download this script to create all the necessary dependencies: [LINK][react-essential-setup-source]
 
 we can run this code just typing in terminal(after downloading file and moving it with ourselves into the directory folder)
@@ -79,12 +64,11 @@ This will download all the project dependencies needed by this tutorial. Once fi
 
 ## Environment description
 
-To work with ReactJS is not as easy as jQuery, because we need some tools to do some special things, each of these tools will be described below:
+To work with ReactJS from scratch is not as simple as using jQuery, because we need a couple of tools to transform our code into something useful to the browsers. These tools are listed and described below:
 
-- **Babel** It is a compiling tool that allow us to use latest features of Javascript and compiles it to proper ES5 code.
-- **Webpack / Browserify** These tools are module bundlers, they allow us to split our code in many files, keeping our code tidy. Then they will join all these files and compress in just 1 file.
-- **JSX** JSX is a special syntax that help us to create HTML markup inside Javascript code.
-- **Gulp** This is a tool that allow us to automate repetitive tasks such as compressing images, CSS preprocessing, linting code, etc.
+- **Babel**: It is a compiling tool that allow us to use latest features of Javascript and compiles it to proper ES5 code, also transform JSX code into regular javascript.
+- **Webpack**: This is a module bundler, it allows us to split our code in many files, keeping our code tidy. Also it does additional things besides this, but for now it's more than enough.
+- **Webpack Plugins**: A couple of plugins to work with the code, if we need to use them we will configure them later ;).
 
 
 ## My first component
@@ -95,87 +79,48 @@ Before creating our first React component we should run our development server. 
 $ npm run start
 ```
 
-This will start our services to work with, then we can view our server in http://localhost:3000
+This will start our services to work with, then we can view our server in http://localhost:1337
 
-Then, we will replace the content inside main.js
+Then, inside src/index.jsx we will find written this:
 
 ```javascript
-console.log('this is my 1st file');
+console.log('hello world');
 ```
 
-for this one
+Now that we have already located the file which is going to be our place to work with, then we can create our first react application.
+
 
 ```javascript
-//react library to create react component
+// with this we can import React to use it
 import React from 'react';
-
-//react library that render our react components somewhere in DOM tree
-import ReactDOM from 'react-dom';
-```
-
-This allow us import React and ReactDOM modules to use them in our app, what means modules and similar is explained in module section later.
-
-Then, we can create our first react component in this way
-
-```javascript
-class ExampleApp extends React.Component {
-
-}
-```
-
-The only function needed inside this component is the render method, which is responsible to declare HTML markup and return it. With this in mind we can create some HTML markup.
-
-```javascript
-render(){
-  //Yup, this is weird, however we can create HTML markup directly in Javascript code
-  //this is called JSX syntax and it differs a little with HTML(but no too much)
-  return <div>This is my first React Component</div>;
-}
-```
-
-As you can see, we can define HTML markup inside Javascript code. Do not worry, Babel(our transpiler) will transform this HTML into traditional code ;).
-
-To attach this component in our DOM we need this line to achieve this
-
-```javascript
-/*
-  - the first sent argument, is our react component we want to render in DOM.
-  - the second one, is the HTML node which will be our host element to render the React component.
-*/
-ReactDOM.render(<ExampleApp />, document.getElementById('example'));
-```
-
-Finally, our first example should be similar to this
-
-```javascript
-import React from 'react';
+// this lib is needed to place our React App into the HTML
 import ReactDOM from 'react-dom';
 
-class ExampleApp extends React.Component {
+// this is the minimal example
+class App extends React.Component {
   render() {
-    return <div>This is my first react component</div>;
+    return (<p>Hello world</p>);
   }
 }
 
-ReactDOM.render(<ExampleApp />, document.getElementById('example'));
+// Also it can be written in this way. However this way is going to be taught later.
+// const App = () => <p>Hello world</p>;
 
+// this is responsible write it on the DOM.
+ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
-This is our first React component, this should look like this in your screen
+Now, this example should look like below:
 
-![screen][screen12]
+
+![screen][screen02]
 
 If you have installed react developer tools, you should see these properties in that tab
 
-![screen][screen13]
+![screen][screen03]
 
-If you noticed in HTML example, an important thing to highlight is the following code
+As you can see, there is not something so different than any other code which we can write ourselves directly.
 
-```html
-<div data-reactid=".0">This is my first react component</div>
-```
-
-The `data-reactid=.0` attribute is for internal use, ReactJS uses it to identify this element as a react component. This one must be a read-only attribute to us.
 
 ## Thinking in components
 
@@ -1357,9 +1302,9 @@ Objects, how they work in Javascript with the Prototypal inheritance, link below
 [react-developer-tools]:https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?utm_source=chrome-app-launcher-info-dialog
 [node-js-source]:https://nodejs.org/dist/v6.9.2/node-v6.9.2-x64.msi
 [react-essential-setup-source]:boot.js
-[screen01]:images/screen01.png
-[screen02]:images/screen02.png
-[screen03]:images/screen03.png
+[screen01]:images/sc-001.png
+[screen02]:images/sc-002.png
+[screen03]:images/sc-003.png
 [screen04]:images/screen04.png
 [screen05]:images/screen05.png
 [screen06]:images/screen06.png
