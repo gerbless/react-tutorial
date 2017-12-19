@@ -167,7 +167,7 @@ The next step is create an user avatar component
 ```javascript
 class UserAvatar extends React.Component {
   render() {
-    return <img src="https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg" />;
+    return <img src="http://placehold.it/350.jpeg&text=Kermit+the+frog+token" />;
   }
 }
 ```
@@ -242,7 +242,9 @@ import ReactDOM from 'react-dom';
 
 class UserAvatar extends React.Component {
   render() {
-    return <img src="https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg" />;
+    return (
+      <img src="http://placehold.it/350.jpeg&text=Kermit+the+frog+token" />
+    );
   }
 }
 
@@ -272,13 +274,13 @@ class UserData extends React.Component {
 class UserProfile extends React.Component {
   render(){
     return (
-      <article className="UserProfile">
+      <article className="user-profile">
         <h3>User Profile</h3>
         <div>
-          <div className="UserProfile-container">
+          <div className="user-profile__section">
             <UserAvatar />
           </div>
-          <div className="UserProfile-container">
+          <div className="user-profile__section">
             <UserData />
           </div>
         </div>
@@ -294,51 +296,42 @@ class ExampleApp extends React.Component {
   }
 }
 
-ReactDOM.render(<ExampleApp />, document.getElementById('example'));
+ReactDOM.render(<ExampleApp />, document.getElementById('app'));
 
 ```
 
-If you want to know, obviously we can add some styles to these components, we are going to use SuitCSS style guides to create our CSS code. If you want to know more about SuitCSS please follow this link http://suitcss.github.io
-
 ```css
-.UserProfile{
+.user-profile {
   width: 50%;
   margin: auto;
 }
 
-.UserProfile-avatar{
-
-}
-
-.UserProfile-container{
+.user-profile__section {
   display: inline-block;
   vertical-align: top;
 }
-
-.UserProfile-description{
-
-}
 ```
 
-now, save this file as styles.css under project folder. We only need to add it within index.html
+now, save this file as main.css under project folder. We only need to add it within index.html
 
 ```html
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <title>My React BoilerPlate</title>
-  <!-- here we will add our stylesheet -->
-  <link rel="stylesheet" href="/static/css/styles.css" />
+  <title>React example</title>
+  <link rel="stylesheet" href="main.css" />
+  <script src="main.bundle.js" defer></script>
 </head>
 ```
 
 Now, with the CSS created, this former example should look as below
 
-![component][screen02]
+![component][screen04]
 
 The HTML code in chrome should be similar to this too
 
-![html][screen03]
+![html][screen05]
 
 The most important thing here, is to keep our components as small as possible. With this in mind, we can reuse them anywhere we want.
 
@@ -359,11 +352,12 @@ E.g. if we want to send to our UserAvatar component some properties to work with
 
 // we send attributes that can be used in a react component
 <UserAvatar
-  url="https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg"
+  url="http://placehold.it/350.jpeg&text=Kermit+the+frog+token"
   age={21}
   hidden={false}
   suggestions={['cats', 'lemon', 'rain', 'soccer', 'beach']}
-  userPreferences={{maxResults: 3, backgroundColor: '#eaeaea', autoRefresh: false}} />
+  userPreferences={{maxResults: 3, backgroundColor: '#eaeaea', autoRefresh: false}}
+/>
 ```
 
 **NOTE** I must highlight one thing, just strings can be sent between quotation marks, the other data types must be between brackets. That is because the enclosing brackets evaluate the values within them.
@@ -379,7 +373,7 @@ class UserAvatar extends React.Component {
 }
 
 //then we can send it the right url via url attribute
-<UserAvatar url="https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg" />
+<UserAvatar url="http://placehold.it/350.jpeg&text=Kermit+the+frog+token" />
 ```
 
 Also, we change all the harcoded values from React components, replacing them with our new way of passing data
@@ -415,7 +409,7 @@ class UserProfile extends React.Component {
         <h3>User Profile</h3>
         <div>
           <div className="UserProfile-container">
-            <UserAvatar url="https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg" />
+            <UserAvatar url="http://placehold.it/350.jpeg&text=Kermit+the+frog+token" />
           </div>
           <div className="UserProfile-container">
             <UserData />
@@ -498,12 +492,12 @@ var user = {
   role: 'CEO',
   salary: '250,000',
   description: 'This is kermit, our CEO',
-  avatarURL: 'https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg'
+  avatarURL: 'http://placehold.it/350.jpeg&text=Kermit+the+frog+token'
 };
 
 //we have delegated all the properties to our root component
 //yes, we can also retrieve all the attributes we need in a property
-ReactDOM.render(<ExampleApp user={user} />, document.getElementById('example'));
+ReactDOM.render(<ExampleApp user={user} />, document.getElementById('app'));
 ```
 
 With this, the parent components can share data with children components. They can send properties to children components, and these can use them as they want.
@@ -535,7 +529,7 @@ class ExampleApp extends React.Component {
         role: 'CEO',
         salary: '250,000',
         description: 'This is kermit, our CEO',
-        avatarURL: 'https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg'
+        avatarURL: 'http://placehold.it/350.jpeg&text=Kermit+the+frog+token'
       }
     };
   }
@@ -573,7 +567,7 @@ class ExampleApp extends React.Component {
         role: 'CEO',
         salary: '250,000',
         description: 'This is kermit, our CEO',
-        avatarURL: 'https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg'
+        avatarURL: 'http://placehold.it/350.jpeg&text=Kermit+the+frog+token'
       }
     };
 
@@ -581,13 +575,10 @@ class ExampleApp extends React.Component {
     setTimeout(() => {
       //to our user property we will assign him a new salary and role
       this.setState({
-          user: {
-              //this is part of new syntax proposal of javascript to extend objects
-              //like var newObject = $.extend(olderObj, newProperties);
-              ...this.state.user,
+          user: Object.assign({}, this.state.user, {
               salary: '550,000',
               role: 'president'
-          }
+          })
       });
     }, 3500);
   }
@@ -636,15 +627,15 @@ class UserAvatar extends React.Component {
 class UserProfile extends React.Component {
   render(){
     return (
-      <article className="UserProfile">
+      <article className="user-profile">
         <h3>User Profile</h3>
         <div>
-          <div className="UserProfile-container">
+          <div className="user-profile__container">
             <UserAvatar
                 url={this.props.user.avatarURL}
                 onClick={this.props.handleClick} />
           </div>
-          <div className="UserProfile-container">
+          <div className="user-profile__container">
             <UserData
               name={this.props.user.name}
               role={this.props.user.role}
@@ -716,13 +707,13 @@ class UserData extends React.Component {
 class UserProfile extends React.Component {
   render(){
     return (
-      <article className="UserProfile">
+      <article className="user-profile">
         <h3>User Profile</h3>
         <div>
-          <div className="UserProfile-container">
+          <div className="user-profile__container">
             <UserAvatar url={this.props.user.avatarURL} />
           </div>
-          <div className="UserProfile-container">
+          <div className="user-profile__container">
             <UserData
               name={this.props.user.name}
               role={this.props.user.role}
@@ -744,14 +735,19 @@ class ExampleApp extends React.Component {
         role: 'CEO',
         salary: '250,000',
         description: 'This is kermit, our CEO',
-        avatarURL: 'https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg'
+        avatarURL: 'http://placehold.it/350.jpeg&text=Kermit+the+frog+token'
       }
     };
 
     //we simulate a state change after 3.5 seconds
-    setTimeout(()=>{
+    setTimeout(() => {
       //to our user we are going to assign him a new salary and a new role in the company
-      this.setState({user:{...this.state.user, salary: '550,000', role: 'president'}});
+      this.setState({
+        user: Object.assign({}, this.state.user, {
+          salary: '550,000',
+          role: 'president'
+        })
+      });
     }, 3500);
   }
 
@@ -760,7 +756,8 @@ class ExampleApp extends React.Component {
   }
 }
 
-ReactDOM.render(<ExampleApp />, document.getElementById('example'));
+ReactDOM.render(<ExampleApp />, document.getElementById('app'));
+
 ```
 
 This we will refactor to a more modular approach. The first thing we need to do is to create a component folder.
@@ -775,7 +772,7 @@ Then we will copy our UserAvatar component in UserAvatar.js file, then we can de
 
 After this, if we try to run the same code, we will get the following error:
 
-![error][screen04]
+![error][userprofileerror]
 
 This occurs because now our app is split into multiple files and we are not importing the code properly. To make our example run as before, we need to refactor a just little bit these files.
 
@@ -816,7 +813,7 @@ class ExampleApp extends React.Component {
         role: 'CEO',
         salary: '250,000',
         description: 'This is kermit, our CEO',
-        avatarURL: 'https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg'
+        avatarURL: 'http://placehold.it/350.jpeg&text=Kermit+the+frog+token'
       }
     };
 
@@ -891,11 +888,11 @@ class ExampleApp extends React.Component {
         role: 'CEO',
         salary: '250,000',
         description: 'This is kermit, our CEO',
-        avatarURL: 'https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg'
+        avatarURL: 'http://placehold.it/350.jpeg&text=Kermit+the+frog+token'
       }
     };
 
-    setTimeout(()=>{
+    setTimeout(() => {
       this.setState({
           user: {
               ...this.state.user,
@@ -946,7 +943,7 @@ class ExampleApp extends React.Component {
         role: 'CEO',
         salary: '250,000',
         description: 'This is kermit, our CEO',
-        avatarURL: 'https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg'
+        avatarURL: 'http://placehold.it/350.jpeg&text=Kermit+the+frog+token'
       }
     };
 
@@ -1057,7 +1054,7 @@ class ExampleApp extends React.Component {
         role: 'CEO',
         salary: '250,000',
         description: 'This is kermit, our CEO',
-        avatarURL: 'https://dl.dropboxusercontent.com/u/18850435/kermit-the-frog.jpg'
+        avatarURL: 'http://placehold.it/350.jpeg&text=Kermit+the+frog+token'
       }
     };
 
@@ -1305,11 +1302,12 @@ Objects, how they work in Javascript with the Prototypal inheritance, link below
 [screen01]:images/sc-001.png
 [screen02]:images/sc-002.png
 [screen03]:images/sc-003.png
-[screen04]:images/screen04.png
-[screen05]:images/screen05.png
+[screen04]:images/sc-004.png
+[screen05]:images/sc-005.png
 [screen06]:images/screen06.png
 [screen07]:images/screen07.png
 [screen08]:images/screen08.png
 [screen09]:images/screen09.png
 [screen12]:images/screen12.png
 [screen13]:images/screen13.png
+[userprofileerror]:images/screen04.png
