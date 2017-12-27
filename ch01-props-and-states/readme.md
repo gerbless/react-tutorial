@@ -166,6 +166,7 @@ With this, the parent components can share data with children components. They c
 
 **NOTE** The most important thing about props is they are immutable data. This means, this properties sent by parent components their children **can not modify them**.
 
+
 ## State
 
 Just using properties, we always will be dependant that a parent component gives us all the properties we need. So with this in case mind we have some issues
@@ -233,7 +234,7 @@ class ExampleApp extends React.Component {
       }
     };
 
-    //we simulate a state change after 3.5 secs
+    // we simulate a state change after 3.5 secs
     setTimeout(() => {
       //to our user property we will assign him a new salary and role
       this.setState({
@@ -244,6 +245,8 @@ class ExampleApp extends React.Component {
       });
     }, 3500);
   }
+  // ...more code here
+}
 ```
 
 With this, we can store internal state to our app, and also we can send properties to our child components.
