@@ -162,7 +162,7 @@ class UserProfile extends React.Component {
 }
 ```
 
-With this, our component will have all the necessary stuff to accomplish our requirements. If you notice here, to assign CSS classes to a React component, you should assign them in className attribute. This is because `class` keyword is a reserved word in Javascript.
+With this, our component will have all the necessary stuff to accomplish our requirements. If you notice here, to assign CSS classes to a React component, you should assign them in className attribute. This is because **class** keyword is a reserved word in Javascript.
 
 The next step is create an user avatar component
 
@@ -340,61 +340,62 @@ The most important thing here, is to keep our components as small as possible. W
 
 ## Props and states
 
-[Props and states](props-and-states/readme.md)
+[Props and states](ch01-props-and-states/readme.md)
 
 
 ## Event handling
 
-[Event handling](event-handling/readme.md)
+[Event handling](ch02-event-handling/readme.md)
 
 
 ## Modules
 
-[Modules](modules/readme.md)
+[Modules](ch03-modules/readme.md)
 
 
 ## Real example
 
-[Real example](real-example/readme.md)
+[Real example](ch04-real-example/readme.md)
 
 
 ## Stateful stateless components
 
-Coming soon...
+[Stateful stateless components](ch05-stateful-stateless-components/readme.md)
+
 
 ## Component lifecycle methods
 
-Coming soon...
+[Component lifecycle methods](ch06-component-lifecycle-methods/readme.md)
 
 
 ## Flux vs MVC
 
-[Flux vs MVC](flux/readme.md)
+[Flux vs MVC](ch07-flux/readme.md)
 
 
 ## GULP
 
-[Gulp](gulp/readme.md)
+[Gulp](ch08-gulp/readme.md)
 
 
 ## CSS Preprocessors
 
-[CSS Preprocessors](css-preprocessors/readme.md)
+[CSS Preprocessors](ch09-css-preprocessors/readme.md)
 
 
 ## Unit tests
 
-[Unit tests](unit-tests/readme.md)
+[Unit tests](ch10-unit-tests/readme.md)
 
 
 ## Functional programming
 
-[Functional programming](functional-programming/readme.md)
+[Functional programming](ch11-functional-programming/readme.md)
 
 
 ## Object oriented programming
 
-[Object Oriented Programming](object-oriented-programming/readme.md)
+[Object Oriented Programming](ch12-object-oriented-programming/readme.md)
 
 
 [es-syntax-source]:http://es6-features.org/#Constants
