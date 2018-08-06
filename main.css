@@ -1,0 +1,7 @@
+.user-profile {
+   ancho : 50 % ;
+  margen : automático ;
+} .user-profile__section {
+   display : inline-block ;
+  vertical-alinear : arriba ;
+}
