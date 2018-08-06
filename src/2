@@ -1,0 +1,101 @@
+// with this we can import React to use it
+import React from 'react';
+// this lib is needed to place our React App into the HTML
+import ReactDOM from 'react-dom';
+
+// this is the minimal example
+  class UserAvatar extends React.Component {
+
+    handleClick() {
+        alert('Hey you, stop clicking at me !');
+      }
+    render() {
+      return <img src={this.props.url} onClick={this.handleClick}/>;
+    }
+  }
+
+  class UserData extends React.Component {
+    render() {
+      return (
+        <table>
+          <tbody>
+            <tr>
+              <th>Name</th>
+              <td>{this.props.name}</td>
+            </tr>
+            <tr>
+              <th>Role</th>
+              <td>{this.props.role}</td>
+            </tr>
+            <tr>
+              <th>Salary</th>
+              <td>$ {this.props.salary}  USD per year</td>
+            </tr>
+          </tbody>
+        </table>
+      );
+    }
+  }
+
+  class UserProfile extends React.Component {
+    render(){
+      return (
+        <article className="UserProfile">
+          <h3>User Profile</h3>
+          <div>
+            <div className="UserProfile-container">
+            <UserAvatar url={this.props.user.avatarURL}/>
+            </div>
+            <div className="UserProfile-container">
+            <UserData
+                 name={this.props.user.name}
+                 role={this.props.user.role}
+                 salary={this.props.user.salary}
+            />
+            </div>
+          </div>
+          <div>{this.props.description}</div>
+        </article>
+      );
+    }
+  }
+
+  class ExampleApp extends React.Component {  //to create initial state data we must define a constructor method inside our react component
+    constructor(props) {
+      //we need to call this function to keep things working as expected
+      super(props);
+
+      //this is the state object we can keep our state for this component
+      this.state = {
+        user: {
+          name: 'Kermit the frog',
+          role: 'CEO',
+          salary: '250,000',
+          description: 'This is kermit, our CEO',
+          avatarURL: 'http://placehold.it/350.jpeg&text=Kermit+the+frog+token'
+        }
+      };
+
+          //we simulate a state change after 3.5 secs
+    setTimeout(() => {
+        //to our user property we will assign him a new salary and role
+        this.setState({
+            user: Object.assign({}, this.state.user, {
+                salary: '550,000',
+                role: 'president'
+            })
+        });
+      }, 3500);
+    }
+
+    render() {
+      //instead of sending props data, we change that to use our internal state
+      return <UserProfile user={this.state.user} />;
+    }
+  }
+
+// Also it can be written in this way. However this way is going to be taught later.
+// const App = () => <p>Hello world</p>;
+
+// this is responsible write it on the DOM.
+ReactDOM.render(<ExampleApp/>, document.getElementById('app'));
